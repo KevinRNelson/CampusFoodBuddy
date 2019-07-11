@@ -28,17 +28,22 @@ public class webScrape {
 			for(int i = 0;i<5;i++){
 				
 				final Document document = Jsoup.connect(DH[i]).get();
-				//System.out.println(document.outerHtml());
+				
 				
 				fw.write("==========================");
 				fw.write(Name[i]);
 				fw.write("==========================\n");
 				
-				for (Element food : document.select("div.menusamprecipes,div.menusampmeals")) {
+				for (Element food : document.select("div.menusamprecipes,div.menusampmeals,img[src$=.gif]")) {
 					if(food.text().equals("Breakfast")||food.text().equals("Lunch")||food.text().equals("Dinner")){
 						fw.write("\n");
 					}
 					fw.write(food.text());
+					if (food.text().equals("")){  //finds the ingredients of the food
+						String tag = food.attr("src");
+						fw.write("------");
+						fw.write( tag.substring(tag.indexOf('/')+1,tag.indexOf('.')));
+					}
 					fw.write("\n");
 					if(food.text().equals("Breakfast")||food.text().equals("Lunch")||food.text().equals("Dinner")){
 						fw.write("\n");
