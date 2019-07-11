@@ -27,6 +27,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(I);
     }
 
+    public void MainMenu(View view) {
+        Intent I = new Intent(this,MainActivity.class);
+        startActivity(I);
+    }
+
+    public void Search(View view) {
+        Intent I = new Intent(this,Search.class);
+        startActivity(I);
+    }
+
     public void cafe(View view){
         Intent I = new Intent(this, CafeSelection.class);
         startActivity(I);

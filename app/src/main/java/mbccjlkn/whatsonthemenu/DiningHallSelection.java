@@ -22,11 +22,24 @@ public class DiningHallSelection extends AppCompatActivity {
         super.onResume();
 
         View vg = findViewById(android.R.id.content);
+        //View notButton = findViewById(R.id.search_btn);
         ArrayList<View> allButtons = vg.getTouchables();
 
         for (View b: allButtons){
-            OpenClosedBehavior.colorClosed((Button) b);
+            if(b.getId() != R.id.search_btn && b.getId() != R.id.main_menu_btn) {
+                OpenClosedBehavior.colorClosed((Button) b);
+            }
         }
+    }
+
+    public void MainMenu(View view) {
+        Intent I = new Intent(this,MainActivity.class);
+        startActivity(I);
+    }
+
+    public void Search(View view) {
+        Intent I = new Intent(this,Search.class);
+        startActivity(I);
     }
 
     public void openDH(View view){

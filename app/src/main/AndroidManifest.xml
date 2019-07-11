@@ -21,7 +21,8 @@
         <activity android:name=".FoodTruckSelection" />
         <activity android:name=".CafeDisplay" />
         <activity android:name=".FavoritesSelection" />
-        <activity android:name=".DiningHallDisplayPage"></activity>
+        <activity android:name=".DiningHallDisplayPage"/>
+        <activity android:name=".Search"></activity>
     </application>
 
 </manifest>
