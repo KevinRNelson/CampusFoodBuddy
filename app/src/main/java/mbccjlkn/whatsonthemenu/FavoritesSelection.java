@@ -15,7 +15,8 @@ import java.util.ArrayList;
 public class FavoritesSelection extends AppCompatActivity {
 
     public int i;
-    public static String[] eateryNames = { "Cruz N' Gourmet",
+    public static String[] eateryNames = {
+            "Cruz N' Gourmet",
             "Drunk Monkey",
             "Raymond's Catering",
             "Banana Joe's (Crown)",
@@ -76,17 +77,17 @@ public class FavoritesSelection extends AppCompatActivity {
 
             buttons[i].setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    if ((int)view.getId() < 21){
+                    //if ((int)view.getId() < 21){
                         Intent I = new Intent(FavoritesSelection.this, CafeDisplay.class);
                         I.putExtra("id", (int)view.getId());
                         startActivity(I);
                         //startActivity(new Intent(FavoritesSelection.this, FavoritesSelection.class));
-                    } else {
+                    /*} else {
                         Intent I = new Intent(FavoritesSelection.this, DiningHallDisplayPage.class);
                         I.putExtra("id", (int)view.getId());
                         startActivity(I);
                         //startActivity(new Intent(FavoritesSelection.this, FavoritesSelection.class));
-                    }
+                    }*/
                 }
             });
 

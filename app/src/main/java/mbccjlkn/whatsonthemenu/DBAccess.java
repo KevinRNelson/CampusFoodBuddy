@@ -1,10 +1,11 @@
 package mbccjlkn.whatsonthemenu;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
+import android.util.Log;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -12,7 +13,7 @@ import java.util.Date;
 
 public class DBAccess {
     private SQLiteOpenHelper openHelper;
-    private SQLiteDatabase database;
+    public SQLiteDatabase database;
     private static DBAccess instance;
 
 
@@ -42,7 +43,6 @@ public class DBAccess {
 
 
     public ArrayList<String> viewFood(int location, String cat) {
-
         ArrayList<String> menu = new ArrayList<String>();
         String filters = "SELECT * FROM Foods WHERE eateryID = " + location + " AND category = '" + cat + "';";
 
@@ -121,5 +121,43 @@ public class DBAccess {
         cr.moveToNext();
         location = cr.getString(0);
         return location;
+    }
+
+    // addFood()
+    // pre:  database must be in swritable state
+    // post: adds the specified food to the menu items database table
+    public void addFood(int eateryId, String name, String price, String category, String tag){
+        name = name.replace("'", "");
+        //String sql = "INSERT INTO Foods (eateryId, name, price, category) VALUES "
+        //        + "('" + eateryId + "',"
+        //        + " '" + name + "',"
+        //        + " '" + price + "',"
+        //        + " '" + category + "'";
+        //database.execSQL(sql);
+
+        ContentValues values = new ContentValues();
+
+        values.put("eateryID", eateryId);
+        values.put("name", name);
+        values.put("price", price);
+        values.put("category", category);
+        values.put("tag", tag);
+
+        database.insert("Foods", null, values);
+
+        Log.d("Foods", values + "");
+
+        ArrayList<String> menu = viewFood(eateryId, category);
+        Log.d("Foods", "number of foods = " + menu.size());
+
+        Log.d("Foods", "tag" + tag);
+    }
+
+
+    // removeDiningHallFood()
+    // pre:  database must be in writable state
+    // post: removes all dining hall food from the Foods table
+    public void removeDiningHallFood(){
+        database.delete("Foods", "eateryID > 20", null);
     }
 }

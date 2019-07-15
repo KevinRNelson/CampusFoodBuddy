@@ -31,7 +31,7 @@ public class DiningHallSelection extends AppCompatActivity {
 
     public void openDH(View view){
         int id = Integer.parseInt(view.getTag().toString());
-        Intent I = new Intent(this, DiningHallDisplayPage.class);
+        Intent I = new Intent(this, CafeDisplay.class);
         I.putExtra("id", id);
         startActivity(I);
     }

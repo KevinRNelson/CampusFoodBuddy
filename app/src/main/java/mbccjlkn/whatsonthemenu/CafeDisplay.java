@@ -203,7 +203,6 @@ public class CafeDisplay extends AppCompatActivity {
         }
 
         if (savedIds.length == 0){
-            Log.d("Test", "Here");
             Fav.add((Integer) getIntent().getExtras().getInt("id"));
             fab.setImageResource(R.drawable.ic_star_favorited);
             Toast.makeText(getApplicationContext(), "Favorited: " + FavoritesSelection.eateryNames[((Integer) getIntent().getExtras().getInt("id")) - 1], Toast.LENGTH_SHORT).show();
