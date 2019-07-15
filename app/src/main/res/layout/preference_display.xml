@@ -3,10 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Search"
+    tools:context=".Preference"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#fffff0">
+    android:layout_height="match_parent">
 
     <include layout="@layout/navigation_bar"/>
 
@@ -28,28 +27,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:text="Search"
+                    android:text="Preferences"
                     android:textColor="@color/colorPrimary"
                     android:textSize="24sp"
-                    app:layout_constraintBottom_toTopOf="@+id/search_food"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <SearchView
-                    android:id="@+id/search_food"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:clickable="true"
-                    android:onClick="clicked"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
             </android.support.constraint.ConstraintLayout>
         </ScrollView>
     </LinearLayout>
-
 
 </android.support.constraint.ConstraintLayout>

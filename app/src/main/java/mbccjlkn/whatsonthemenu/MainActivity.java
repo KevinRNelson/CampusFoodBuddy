@@ -27,13 +27,17 @@ public class MainActivity extends AppCompatActivity {
         startActivity(I);
     }
 
-    public void MainMenu(View view) {
-        Intent I = new Intent(this,MainActivity.class);
+    public void Search(View view) {
+        Intent I = new Intent(this,Search.class);
         startActivity(I);
     }
 
-    public void Search(View view) {
-        Intent I = new Intent(this,Search.class);
+    public void MainMenu(View view) {
+
+    }
+
+    public void Preference(View view) {
+        Intent I = new Intent(this,Preference.class);
         startActivity(I);
     }
 

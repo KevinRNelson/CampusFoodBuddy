@@ -22,7 +22,8 @@
         <activity android:name=".CafeDisplay" />
         <activity android:name=".FavoritesSelection" />
         <activity android:name=".DiningHallDisplayPage"/>
-        <activity android:name=".Search"></activity>
+        <activity android:name=".Search"/>
+        <activity android:name=".Preference"></activity>
     </application>
 
 </manifest>

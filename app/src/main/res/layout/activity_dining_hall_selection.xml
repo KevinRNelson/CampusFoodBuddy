@@ -6,192 +6,139 @@
     android:layout_height="match_parent"
     tools:context=".DiningHallSelection">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="32dp"
-        android:text="Select a Dining Hall"
-        android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guideline3" />
+    <include layout="@layout/navigation_bar"/>
 
-    <Button
-        android:id="@+id/CowellStevensonDH"
-        style="@style/wotmButton"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/rounded_button"
-        android:onClick="openDH"
-        android:padding="10dp"
-        android:tag="22"
-        android:text="Cowell/Stevenson"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline5" />
-
-    <Button
-        android:id="@+id/PorterKresgeDH"
-        style="@style/wotmButton"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/rounded_button"
-        android:onClick="openDH"
-        android:padding="10dp"
-        android:tag="24"
-        android:text="Porter/Kresge"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline9" />
-
-    <Button
-        android:id="@+id/RachelCarsonOakesDH"
-        style="@style/wotmButton"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/rounded_button"
-        android:onClick="openDH"
-        android:padding="10dp"
-        android:tag="25"
-        android:text="Rachel Carson/Oakes"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline6" />
-
-    <Button
-        android:id="@+id/College910DH"
-        style="@style/wotmButton"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/rounded_button"
-        android:onClick="openDH"
-        android:padding="10dp"
-        android:tag="21"
-        android:text="College 9/10"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline7" />
-
-    <Button
-        android:id="@+id/CrownMerrillDH"
-        style="@style/wotmButton"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/rounded_button"
-        android:onClick="openDH"
-        android:padding="10dp"
-        android:tag="23"
-        android:text="Crown/Merrill"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@id/guideline7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline8" />
-
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/naviagtionBAR"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="136dp"
-        app:layout_constraintBottom_toBottomOf="@id/guideline9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="525dp">
 
-            <ImageButton
-                android:id="@+id/main_menu_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#77BAEA"
-                android:onClick="MainMenu"
-                app:srcCompat="@android:drawable/ic_menu_compass"
-                tools:visibility="visible" />
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <ImageButton
-                android:id="@+id/search_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#77BAEA"
-                android:onClick="Search"
-                app:srcCompat="@android:drawable/ic_search_category_default" />
-        </LinearLayout>
-    </android.support.design.widget.BottomNavigationView>
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="48dp"
+                    android:text="Select a Dining Hall"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toTopOf="@id/CowellStevensonDH"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_end="709dp" />
+                <Button
+                    android:id="@+id/CowellStevensonDH"
+                    style="@style/wotmButton"
+                    android:layout_width="300dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/rounded_button"
+                    android:onClick="openDH"
+                    android:padding="10dp"
+                    android:tag="22"
+                    android:text="Cowell/Stevenson"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@id/RachelCarsonOakesDH"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textView5" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="100dp" />
+                <Button
+                    android:id="@+id/PorterKresgeDH"
+                    style="@style/wotmButton"
+                    android:layout_width="300dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/rounded_button"
+                    android:onClick="openDH"
+                    android:padding="10dp"
+                    android:tag="24"
+                    android:text="Porter/Kresge"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@id/CrownMerrillDH"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/College910DH" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="200dp" />
+                <Button
+                    android:id="@+id/RachelCarsonOakesDH"
+                    style="@style/wotmButton"
+                    android:layout_width="300dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/rounded_button"
+                    android:onClick="openDH"
+                    android:padding="10dp"
+                    android:tag="25"
+                    android:text="Rachel Carson/Oakes"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@id/College910DH"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/CowellStevensonDH" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="300dp" />
+                <Button
+                    android:id="@+id/College910DH"
+                    style="@style/wotmButton"
+                    android:layout_width="300dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/rounded_button"
+                    android:onClick="openDH"
+                    android:padding="10dp"
+                    android:tag="21"
+                    android:text="College 9/10"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@id/PorterKresgeDH"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/RachelCarsonOakesDH" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="400dp" />
+                <Button
+                    android:id="@+id/CrownMerrillDH"
+                    style="@style/wotmButton"
+                    android:layout_width="300dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/rounded_button"
+                    android:onClick="openDH"
+                    android:padding="10dp"
+                    android:tag="23"
+                    android:text="Crown/Merrill"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/PorterKresgeDH" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="500dp" />
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="600dp" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

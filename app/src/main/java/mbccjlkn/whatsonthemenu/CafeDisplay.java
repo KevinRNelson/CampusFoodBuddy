@@ -2,6 +2,7 @@ package mbccjlkn.whatsonthemenu;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.graphics.drawable.Drawable;
@@ -180,6 +181,21 @@ public class CafeDisplay extends AppCompatActivity {
 
         TextView loc = findViewById(R.id.location);
         loc.setText(db.getLocation(extras.getInt("id")));
+    }
+
+    public void MainMenu(View view) {
+        Intent I = new Intent(this,MainActivity.class);
+        startActivity(I);
+    }
+
+    public void Search(View view) {
+        Intent I = new Intent(this,Search.class);
+        startActivity(I);
+    }
+
+    public void Preference(View view) {
+        Intent I = new Intent(this,Preference.class);
+        startActivity(I);
     }
 
     // favorite()

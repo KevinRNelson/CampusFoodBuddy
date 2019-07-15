@@ -26,7 +26,7 @@ public class DiningHallSelection extends AppCompatActivity {
         ArrayList<View> allButtons = vg.getTouchables();
 
         for (View b: allButtons){
-            if(b.getId() != R.id.search_btn && b.getId() != R.id.main_menu_btn) {
+            if(b.getId() != R.id.search_btn && b.getId() != R.id.main_menu_btn && b.getId() != R.id.preferences) {
                 OpenClosedBehavior.colorClosed((Button) b);
             }
         }
@@ -39,6 +39,11 @@ public class DiningHallSelection extends AppCompatActivity {
 
     public void Search(View view) {
         Intent I = new Intent(this,Search.class);
+        startActivity(I);
+    }
+
+    public void Preference(View view) {
+        Intent I = new Intent(this,Preference.class);
         startActivity(I);
     }
 

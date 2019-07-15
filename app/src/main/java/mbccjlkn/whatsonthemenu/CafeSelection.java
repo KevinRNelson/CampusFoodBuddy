@@ -25,8 +25,25 @@ public class CafeSelection extends AppCompatActivity {
         ArrayList<View> allButtons = vg.getTouchables();
 
         for (View b: allButtons){
-            OpenClosedBehavior.colorClosed((Button) b);
+            if(b.getId() != R.id.search_btn && b.getId() != R.id.main_menu_btn && b.getId() != R.id.preferences) {
+                OpenClosedBehavior.colorClosed((Button) b);
+            }
         }
+    }
+
+    public void MainMenu(View view) {
+        Intent I = new Intent(this,MainActivity.class);
+        startActivity(I);
+    }
+
+    public void Search(View view) {
+        Intent I = new Intent(this,Search.class);
+        startActivity(I);
+    }
+
+    public void Preference(View view) {
+        Intent I = new Intent(this,Preference.class);
+        startActivity(I);
     }
 
     public void openCafe(View view){

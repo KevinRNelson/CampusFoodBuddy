@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="525dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+
+        <android.support.design.widget.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            app:elevation="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/main_menu_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#77BAEA"
+                    android:onClick="MainMenu"
+                    app:srcCompat="@android:drawable/ic_menu_compass"
+                    tools:visibility="visible" />
+
+                <ImageButton
+                    android:id="@+id/search_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#77BAEA"
+                    android:onClick="Search"
+                    app:srcCompat="@android:drawable/ic_search_category_default" />
+
+                <ImageButton
+                    android:id="@+id/preferences"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#77BAEA"
+                    android:onClick="Preference"
+                    app:srcCompat="@android:drawable/ic_menu_add" />
+            </LinearLayout>
+
+        </android.support.design.widget.BottomNavigationView>
+
+    </LinearLayout>
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="match_parent"
+        android:layout_height="525dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="570dp" />
+</android.support.constraint.ConstraintLayout>
