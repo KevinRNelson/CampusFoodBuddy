@@ -7,17 +7,22 @@ import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.design.widget.FloatingActionButton;
+//import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,9 +33,9 @@ import java.util.List;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 public class CafeDisplay extends AppCompatActivity {
-
+    private static final String key = "id";
     DBAccess db = MainActivity.dba;
-
+    Button map;
 
     ExpandableListView expandableListView;
     ExpandableListAdapter expandableListAdapter;
@@ -42,6 +47,10 @@ public class CafeDisplay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_cafe_display);
+
+
+        map = findViewById(R.id.cafe_mapBTN);
+
 
         final Bundle extras = getIntent().getExtras();
         int current = extras.getInt("id");
@@ -194,8 +203,21 @@ public class CafeDisplay extends AppCompatActivity {
     }
 
     public void Preference(View view) {
-        Intent I = new Intent(this,Preference.class);
+        Intent I = new Intent(this, Preference.class);
         startActivity(I);
+    }
+
+    public void map(View view){
+        if(view.getId() == R.id.cafe_mapBTN){
+            //handle the click here and make whatever you want
+            Intent intent = new Intent(this, Mapview.class);
+            Bundle k  = new Bundle();
+            final Bundle extras = getIntent().getExtras();
+            int current = extras.getInt("id");
+            k.putInt(key, current );
+            intent.putExtras(k);
+            startActivity(intent);
+        }
     }
 
     // favorite()
