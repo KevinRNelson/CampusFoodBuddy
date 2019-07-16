@@ -34,7 +34,8 @@ public class DiningHallSelection extends AppCompatActivity {
 
     public void MainMenu(View view) {
         Intent I = new Intent(this,MainActivity.class);
-        startActivity(I);
+        I.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivityIfNeeded(I,0);
     }
 
     public void Search(View view) {

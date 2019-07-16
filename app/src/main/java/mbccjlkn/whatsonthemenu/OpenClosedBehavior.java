@@ -1,6 +1,7 @@
 package mbccjlkn.whatsonthemenu;
 
 import android.graphics.Color;
+import android.util.Log;
 import android.widget.Button;
 
 public class OpenClosedBehavior {
@@ -20,6 +21,7 @@ public class OpenClosedBehavior {
     private static boolean eateryClosed(Button b){
         DBAccess db = MainActivity.dba;
         int id = Integer.parseInt(b.getTag().toString());
+        // Log.d("Closed", db.isClosed(id) + "");
         return db.isClosed(id);
     }
 }

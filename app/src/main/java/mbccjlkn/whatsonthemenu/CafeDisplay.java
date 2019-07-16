@@ -194,7 +194,8 @@ public class CafeDisplay extends AppCompatActivity {
 
     public void MainMenu(View view) {
         Intent I = new Intent(this,MainActivity.class);
-        startActivity(I);
+        I.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivityIfNeeded(I,0);
     }
 
     public void Search(View view) {
@@ -241,7 +242,6 @@ public class CafeDisplay extends AppCompatActivity {
         }
 
         if (savedIds.length == 0){
-            Log.d("Test", "Here");
             Fav.add((Integer) getIntent().getExtras().getInt("id"));
             fab.setImageResource(R.drawable.ic_star_favorited);
             Toast.makeText(getApplicationContext(), "Favorited: " + FavoritesSelection.eateryNames[((Integer) getIntent().getExtras().getInt("id")) - 1], Toast.LENGTH_SHORT).show();
