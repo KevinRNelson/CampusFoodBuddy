@@ -54,6 +54,7 @@
         <activity android:name=".DiningHallDisplayPage" />
         <activity android:name=".Search" />
         <activity android:name=".Preference" />
+        <activity android:name=".mainMenu" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyB0Uu7RxfxHgMvSNTBHsNikK2YAKmfHFs4" />

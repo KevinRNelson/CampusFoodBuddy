@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Space;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -102,7 +103,7 @@ public class FavoritesSelection extends AppCompatActivity {
             ArrayList<View> allButtons = vg.getTouchables();
 
             for (View b: allButtons){
-                if(b.getId() != R.id.search_btn && b.getId() != R.id.main_menu_btn && b.getId() != R.id.preferences) {
+                if(b.getId() != R.id.search_btn && b.getId() != R.id.main_menu_btn && b.getId() != R.id.preferences && b.getId() != R.id.favorite ) {
                     OpenClosedBehavior.colorClosed((Button) b);
                 }
             }
@@ -129,7 +130,7 @@ public class FavoritesSelection extends AppCompatActivity {
     }
 
     public void MainMenu(View view) {
-        Intent I = new Intent(this,MainActivity.class);
+        Intent I = new Intent(this,mainMenu.class);
         I.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivityIfNeeded(I,0);
     }
@@ -142,5 +143,9 @@ public class FavoritesSelection extends AppCompatActivity {
     public void Preference(View view) {
         Intent I = new Intent(this,Preference.class);
         startActivity(I);
+    }
+
+    public void favorites(View view){
+
     }
 }

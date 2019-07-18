@@ -1,6 +1,7 @@
 package mbccjlkn.whatsonthemenu;
 
 import android.Manifest;
+import android.app.ActionBar;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,12 +25,10 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
     DBAccess db = MainActivity.dba;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.maps);
-
 
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.

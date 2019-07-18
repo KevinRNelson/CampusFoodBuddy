@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
             new getDiningHallMenus().execute();
             getMenus = false;
         }
+
     }
 
 
@@ -46,51 +47,6 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    public void diningHall(View view){
-        Intent I = new Intent(this, DiningHallSelection.class);
-        startActivity(I);
-    }
-
-    public void Search(View view) {
-        Intent I = new Intent(this,Search.class);
-        startActivity(I);
-    }
-
-    public void MainMenu(View view) {
-
-    }
-
-    public void Preference(View view) {
-        Intent I = new Intent(this,Preference.class);
-        startActivity(I);
-    }
-
-    public void cafe(View view){
-        Intent I = new Intent(this, CafeSelection.class);
-        startActivity(I);
-    }
-
-    public void foodTrucks(View view){
-        Intent I = new Intent(this, FoodTruckSelection.class);
-        startActivity(I);
-    }
-
-    public void favorites(View view){
-        SharedPreferences sp = this.getSharedPreferences("WOTM", Context.MODE_PRIVATE);
-        String spText = sp.getString("Info", "");
-        ArrayList<Integer> Fav = new ArrayList<Integer>();
-
-        String[] savedIds;
-        if (spText.equals(""))
-            savedIds = new String[0];
-        else
-            savedIds = spText.split("-");
-
-        if(savedIds.length == 0)
-            Toast.makeText(view.getContext(), "No Favorites To Display", Toast.LENGTH_LONG).show();
-        else
-            startActivity(new Intent(this, FavoritesSelection.class));
-    }
 
     // getDiningHallMenus()
     // pre: the database has to be opened
@@ -174,6 +130,9 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Database", cr.getString(0) + " " + cr.getString(1) + " " + cr.getString(2) + " " + cr.getString(3));
             }
             Log.d("size", i + "");
+
+            Intent I = new Intent(MainActivity.this,mainMenu.class);
+            startActivity(I);
 
             return null;
 

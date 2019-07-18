@@ -24,7 +24,7 @@ public class Preference extends  AppCompatActivity{
     }
 
     public void MainMenu(View view) {
-        Intent I = new Intent(this,MainActivity.class);
+        Intent I = new Intent(this,mainMenu.class);
         I.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivityIfNeeded(I,0);
     }
@@ -36,5 +36,22 @@ public class Preference extends  AppCompatActivity{
 
     public void Preference(View view) {
 
+    }
+
+    public void favorites(View view){
+        SharedPreferences sp = this.getSharedPreferences("WOTM", Context.MODE_PRIVATE);
+        String spText = sp.getString("Info", "");
+        ArrayList<Integer> Fav = new ArrayList<Integer>();
+
+        String[] savedIds;
+        if (spText.equals(""))
+            savedIds = new String[0];
+        else
+            savedIds = spText.split("-");
+
+        if(savedIds.length == 0)
+            Toast.makeText(view.getContext(), "No Favorites To Display", Toast.LENGTH_LONG).show();
+        else
+            startActivity(new Intent(this, FavoritesSelection.class));
     }
 }

@@ -3,41 +3,33 @@ package mbccjlkn.whatsonthemenu;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.os.AsyncTask;
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import java.util.ArrayList;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
-public class CafeSelection extends AppCompatActivity {
+public class mainMenu extends AppCompatActivity{
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cafe_selection);
+        setContentView(R.layout.main_menu);
+
     }
 
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        View vg = findViewById(android.R.id.content);
-        ArrayList<View> allButtons = vg.getTouchables();
-
-        for (View b: allButtons){
-            if(b.getId() != R.id.search_btn && b.getId() != R.id.main_menu_btn && b.getId() != R.id.preferences && b.getId() != R.id.favorite) {
-                OpenClosedBehavior.colorClosed((Button) b);
-            }
-        }
-    }
-
-    public void MainMenu(View view) {
-        Intent I = new Intent(this,mainMenu.class);
-        I.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivityIfNeeded(I,0);
+    public void diningHall(View view){
+        Intent I = new Intent(this, DiningHallSelection.class);
+        startActivity(I);
     }
 
     public void Search(View view) {
@@ -45,15 +37,22 @@ public class CafeSelection extends AppCompatActivity {
         startActivity(I);
     }
 
+    public void MainMenu(View view) {
+
+    }
+
     public void Preference(View view) {
         Intent I = new Intent(this,Preference.class);
         startActivity(I);
     }
 
-    public void openCafe(View view){
-        int id = Integer.parseInt(view.getTag().toString());
-        Intent I = new Intent(this, CafeDisplay.class);
-        I.putExtra("id", id);
+    public void cafe(View view){
+        Intent I = new Intent(this, CafeSelection.class);
+        startActivity(I);
+    }
+
+    public void foodTrucks(View view){
+        Intent I = new Intent(this, FoodTruckSelection.class);
         startActivity(I);
     }
 
