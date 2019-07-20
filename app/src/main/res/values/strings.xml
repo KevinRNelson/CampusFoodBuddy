@@ -1,4 +1,5 @@
 <resources>
+    <string name = "google_map_api_key">AIzaSyAAyQj_uC8LPHzRBeCsnGKXQR2cOj9Z_ag</string>
     <string name="app_name">What\'s on the Menu</string>
     <string name="title_activity_dhdisplay">DHDisplay</string>
     <string name="Dining_Hall_Information">
