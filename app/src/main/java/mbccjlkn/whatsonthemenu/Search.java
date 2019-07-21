@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Search extends AppCompatActivity {
-
+    private static final String key = "id";
     private ProgressBar progressBar;
     DBAccess db = MainActivity.dba;
     SearchFoodByTag searchFoodByTag;
@@ -119,12 +119,20 @@ public class Search extends AppCompatActivity {
     }
 
     public void Search(View view) {
-        Intent I = new Intent(this, Search.class);
-        startActivity(I);
+
     }
 
-    public void Preference(View view) {
-        Intent I = new Intent(this, Preference.class);
+    public void allLocation(View view) {
+       /* Intent I = new Intent(this,Mapview.class);
+        startActivity(I);
+        int id = 22;
+        I.putExtra("id", id);*/
+        Intent I = new Intent(this,Mapview.class);
+        Bundle k  = new Bundle();
+        //final Bundle extras = getIntent().getExtras();
+        int current = 60;
+        k.putInt(key, current );
+        I.putExtras(k);
         startActivity(I);
     }
 

@@ -58,7 +58,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     style="@style/naviBtn"
-                    android:onClick="Preference"
+                    android:onClick="allLocation"
                     app:srcCompat="@android:drawable/ic_menu_add" />
 
                 <ImageButton

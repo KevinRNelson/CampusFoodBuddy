@@ -56,6 +56,7 @@ import java.net.URLConnection;
 
 public class Mapview extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
     private GoogleMap mMap;
+
     DBAccess db = MainActivity.dba;
     FusedLocationProviderClient mFusedLocationClient;
     LocationRequest mLocationRequest;
@@ -63,7 +64,7 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
     Location user_location;
     boolean checkOncompelte = false;
     private URLConnection urlConnection;
-
+    int all_location = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,26 +101,45 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
                     Log.d("check", "v1: " +  user_location.getLongitude());
                     final Bundle extras = getIntent().getExtras();
                     int current = extras.getInt("id");
-                    ArrayList<String> list = db.viewEatery(current);
+                    if(current == 60) {
+                        Log.d("check", "current is 60+++++");
+                        for(int i = 1; i <= 25; i++ ) {
+                            String coordinate = db.getLocation(i);
+                            ArrayList<String> list = db.viewEatery(i);
+                            String[] split_string = coordinate.split("_", 0);
+                            float v = Float.parseFloat(split_string[0]);
+                            float v1 = Float.parseFloat(split_string[1]);
+                            LatLng des_point = new LatLng(v, v1);
+                            mMap.addMarker(new MarkerOptions().position(des_point).title(list.get(0)));
 
-                    String coordinate = db.getLocation(current);
-                    String[] split_string = coordinate.split("_", 0);
-                    float v = Float.parseFloat(split_string[0]);
-                    float v1 = Float.parseFloat(split_string[1]);
-                    //GeoPoint geoPoint = new GeoPoint(location.getLatitude())
+
+                        }
+                        LatLng center = new LatLng(36.995211,-122.059205);
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(center, 14));
+                    }else{
+                        Log.d("check", "Current:" + current);
+                        ArrayList<String> list = db.viewEatery(current);
+
+                        String coordinate = db.getLocation(current);
+                        String[] split_string = coordinate.split("_", 0);
+                        float v = Float.parseFloat(split_string[0]);
+                        float v1 = Float.parseFloat(split_string[1]);
+                        //GeoPoint geoPoint = new GeoPoint(location.getLatitude())
 
 
-                    double latitude = user_location.getLatitude();
-                    double longitude = user_location.getLongitude();
+                        double latitude = user_location.getLatitude();
+                        double longitude = user_location.getLongitude();
 
-                    LatLng current_pos = new LatLng(latitude, longitude);
-                    LatLng des_point = new LatLng(v, v1);
+                        LatLng current_pos = new LatLng(latitude, longitude);
+                        LatLng des_point = new LatLng(v, v1);
 
-                    Marker destinations = mMap.addMarker(new MarkerOptions().position(des_point).title(list.get(0)));
-                    Marker origin = mMap.addMarker(new MarkerOptions().position(current_pos).title("Your Location"));
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(des_point, 15));
-                    Direction(destinations, origin);
-                    origin.remove();
+                        Marker destinations = mMap.addMarker(new MarkerOptions().position(des_point).title(list.get(0)));
+                        Marker origin = mMap.addMarker(new MarkerOptions().position(current_pos).title("Your Location"));
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(des_point, 15));
+                        Direction(destinations, origin);
+                        origin.remove();
+                    }
+
                 }else{
                     Log.d("check", "fail ----------");
                 }
@@ -185,6 +205,7 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
     @Override
     public void onMapReady(GoogleMap googleMap) {
         getLastKnownLocation();
+
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mMap.getUiSettings().setZoomControlsEnabled(true);
