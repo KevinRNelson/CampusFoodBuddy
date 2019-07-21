@@ -114,7 +114,7 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
 
 
                         }
-                        LatLng center = new LatLng(36.995211,-122.059205);
+                        LatLng center = new LatLng(36.991974,-122.059288);
                         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(center, 14));
                     }else{
                         Log.d("check", "Current:" + current);
