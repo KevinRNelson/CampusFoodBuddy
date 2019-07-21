@@ -6,14 +6,23 @@
     android:background="#fffff0"
     tools:context=".mainMenu">
 
+    <include
+        android:id="@+id/include4"
+        layout="@layout/navigation_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
 
     <ScrollView
         android:id="@+id/scrollView6"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="555dp"
         android:background="#86FFC107"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="71dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,7 +64,6 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="30dp"
                 android:background="#035BF4"
-                android:onClick="diningHall"
                 android:text="Dining Halls"
                 android:textColor="#D8FFC107" />
 
@@ -77,8 +85,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="21"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="diningHall">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -107,8 +116,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="23"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="diningHall">
+                        android:onClick="openCafe">
 
                         <ImageView
                             android:id="@+id/imageView5"
@@ -135,8 +145,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="24"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="diningHall">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -165,8 +176,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="22"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="diningHall">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -196,8 +208,9 @@
                         android:layout_marginRight="30dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="25"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="diningHall">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -230,7 +243,6 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="30dp"
                 android:background="#035BF4"
-                android:onClick="cafe"
                 android:text="Cafe"
                 android:textColor="#D8FFC107" />
 
@@ -252,8 +264,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="4"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="cafe">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -282,8 +295,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="5"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="cafe">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -313,8 +327,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="6"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="cafe">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -343,8 +358,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="7"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="cafe">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -374,8 +390,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="8"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="cafe">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -404,8 +421,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="9"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="cafe">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -434,8 +452,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="10"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="cafe">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -464,8 +483,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="11"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="cafe">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -494,8 +514,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="12"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="cafe">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -524,8 +545,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="13"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="cafe">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -554,8 +576,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="14"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="cafe">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -584,8 +607,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="15"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="cafe">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -614,8 +638,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="16"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="cafe">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -644,8 +669,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="17"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="cafe">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -674,8 +700,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="18"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="cafe">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -704,8 +731,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="19"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="cafe">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -735,8 +763,9 @@
                         android:layout_marginRight="30dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="20"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="cafe">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -769,7 +798,6 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="30dp"
                 android:background="#035BF4"
-                android:onClick="foodTrucks"
                 android:text="FoodTrucks"
                 android:textColor="#D8FFC107" />
 
@@ -793,8 +821,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="1"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="foodTrucks">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -823,8 +852,9 @@
                         android:layout_marginLeft="40dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="3"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="foodTrucks">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -855,8 +885,9 @@
                         android:layout_marginRight="30dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:tag="2"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="foodTrucks">
+                        android:onClick="openCafe">
 
 
                         <ImageView
@@ -885,14 +916,7 @@
 
     </ScrollView>
 
-    <include
-        android:id="@+id/include4"
-        layout="@layout/navigation_bar"
-        android:onClick="diningHall"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

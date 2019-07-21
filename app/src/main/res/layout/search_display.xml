@@ -54,9 +54,10 @@
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
-        android:layout_width="376dp"
+        android:layout_width="match_parent"
         android:layout_height="122dp"
         android:visibility="visible"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -162,6 +163,7 @@
 
     <ExpandableListView
         android:id="@+id/expandableListView"
+
         android:layout_width="326dp"
         android:layout_height="279dp"
         android:layout_marginTop="3dp"

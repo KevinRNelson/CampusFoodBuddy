@@ -55,6 +55,14 @@ public class mainMenu extends AppCompatActivity{
         startActivity(I);
     }
 
+    public void openCafe(View view){
+        int id = Integer.parseInt(view.getTag().toString());
+        Intent I = new Intent(this, CafeDisplay.class);
+        I.putExtra("id", id);
+        startActivity(I);
+    }
+
+
     public void cafe(View view){
         Intent I = new Intent(this, CafeSelection.class);
         startActivity(I);
