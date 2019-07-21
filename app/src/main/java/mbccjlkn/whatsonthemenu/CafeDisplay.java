@@ -1,23 +1,24 @@
 package mbccjlkn.whatsonthemenu;
 
-
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -27,9 +28,8 @@ import java.util.List;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 public class CafeDisplay extends AppCompatActivity {
-
+    private static final String key = "id";
     DBAccess db = MainActivity.dba;
-
 
     ExpandableListView expandableListView;
     ExpandableListAdapter expandableListAdapter;
@@ -58,7 +58,7 @@ public class CafeDisplay extends AppCompatActivity {
 
         setContentView(R.layout.activity_cafe_display);
 
-        ImageView imageView = findViewById(R.id.cafeImage);
+        ImageButton image = findViewById(R.id.cafeImage);
         AssetManager assetManager = getAssets();
         String file = "images/img"+current+".jpg";
 
@@ -66,8 +66,8 @@ public class CafeDisplay extends AppCompatActivity {
         try {
             is = assetManager.open(file);
             Drawable d = Drawable.createFromStream(is, null);
-            // set image to ImageView
-            imageView.setImageDrawable(d);
+
+            image.setImageDrawable(d);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -101,6 +101,37 @@ public class CafeDisplay extends AppCompatActivity {
         expandableListAdapter = new CustomExpandableListAdapter(this, expandableListTitle, expandableListDetail);
         expandableListView.setAdapter(expandableListAdapter);
 
+        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                Log.d("SearchList", groupPosition + " " + childPosition);
+
+                String eatery = expandableListTitle.get(groupPosition);
+                String temp = expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition);
+
+                String food = "";
+                for (int i = 0; i < temp.length(); i++){
+                    if (!temp.substring(i, i + 1).equals("\t"))
+                        food += temp.substring(i, i + 1);
+                    else
+                        break;
+                }
+
+                SharedPreferences sp = CafeDisplay.this.getSharedPreferences("WOTM", Context.MODE_PRIVATE);
+                String text = sp.getString("Meals", "");
+
+                text += "-" + eatery + "_" + food;
+
+                Toast.makeText(getApplicationContext(), "Favorited " + food, Toast.LENGTH_SHORT).show();
+
+                sp.edit().clear().commit();
+                sp.edit().putString("Meals", text).apply();
+
+                return false;
+            }
+        });
+
         expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
 
             @Override
@@ -108,10 +139,7 @@ public class CafeDisplay extends AppCompatActivity {
                                         int groupPosition, long id) {
                 setListViewHeight(parent, groupPosition);
 
-
-
                 return false;
-
             }
         });
 
@@ -119,7 +147,6 @@ public class CafeDisplay extends AppCompatActivity {
 
             @Override
             public void onGroupExpand(int groupPosition) {
-
                 LinearLayout layout = findViewById(R.id.linearLayout);
                 ViewGroup.LayoutParams params = layout.getLayoutParams();
                 params.height = WRAP_CONTENT;
@@ -129,8 +156,6 @@ public class CafeDisplay extends AppCompatActivity {
                 ViewGroup.LayoutParams params2 = layout2.getLayoutParams();
                 params2.height = WRAP_CONTENT;
                 layout2.setLayoutParams(params2);
-
-                //setContentView(R.layout.activity_cafe_display);
             }
         });
 
@@ -139,17 +164,6 @@ public class CafeDisplay extends AppCompatActivity {
             @Override
             public void onGroupCollapse(int groupPosition) {
 
-            }
-        });
-
-        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v,
-                                        int groupPosition, int childPosition, long id) {
-
-                // Here is where we would have detailed info about food items show up
-
-                return false;
             }
         });
 
@@ -177,9 +191,54 @@ public class CafeDisplay extends AppCompatActivity {
             findViewById(R.id.menu_header).setVisibility(View.INVISIBLE);
         }
 
+        //TextView loc = findViewById(R.id.location);
+        //loc.setText(db.getLocation(extras.getInt("id")));
+    }
 
-        TextView loc = findViewById(R.id.location);
-        loc.setText(db.getLocation(extras.getInt("id")));
+    public void MainMenu(View view) {
+        Intent I = new Intent(this,mainMenu.class);
+        I.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivityIfNeeded(I,0);
+    }
+
+    public void Search(View view) {
+        Intent I = new Intent(this,Search.class);
+        startActivity(I);
+    }
+
+    public void Preference(View view) {
+        Intent I = new Intent(this, Preference.class);
+        startActivity(I);
+    }
+
+    public void map(View view){
+        Intent intent = new Intent(this, Mapview.class);
+
+        Bundle k  = new Bundle();
+        final Bundle extras = getIntent().getExtras();
+        int current = extras.getInt("id");
+
+        k.putInt(key, current);
+        intent.putExtras(k);
+
+        startActivity(intent);
+    }
+
+    public void favorites(View view){
+        SharedPreferences sp = this.getSharedPreferences("WOTM", Context.MODE_PRIVATE);
+        String spText = sp.getString("Info", "");
+        ArrayList<Integer> Fav = new ArrayList<Integer>();
+
+        String[] savedIds;
+        if (spText.equals(""))
+            savedIds = new String[0];
+        else
+            savedIds = spText.split("-");
+
+        if(savedIds.length == 0)
+            Toast.makeText(view.getContext(), "No Favorites To Display", Toast.LENGTH_LONG).show();
+        else
+            startActivity(new Intent(this, FavoritesSelection.class));
     }
 
     // favorite()
@@ -203,7 +262,6 @@ public class CafeDisplay extends AppCompatActivity {
         }
 
         if (savedIds.length == 0){
-            Log.d("Test", "Here");
             Fav.add((Integer) getIntent().getExtras().getInt("id"));
             fab.setImageResource(R.drawable.ic_star_favorited);
             Toast.makeText(getApplicationContext(), "Favorited: " + FavoritesSelection.eateryNames[((Integer) getIntent().getExtras().getInt("id")) - 1], Toast.LENGTH_SHORT).show();

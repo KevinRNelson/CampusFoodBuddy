@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CafeDisplay">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <include layout="@layout/navigation_bar"/>
+
+    <ScrollView
+
         android:id="@+id/activity_expandable_scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="555dp"
         android:fillViewport="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,15 +26,20 @@
             android:orientation="vertical">
 
 
-            <android.support.constraint.ConstraintLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/frameLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/cafeImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_width="496dp"
+                    android:layout_height="162dp"
+                    android:adjustViewBounds="true"
+                    android:onClick="map"
+                    android:scaleType="fitCenter"
+                    android:background="#FFFFFF"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/wotm_icon" />
@@ -40,30 +48,49 @@
                     android:id="@+id/spacer"
                     android:layout_width="20dp"
                     android:layout_height="15dp"
-                    app:layout_constraintRight_toRightOf="@+id/cafeImage"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cafeImage" />
 
-                <android.support.design.widget.FloatingActionButton
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/fab"
-                    android:layout_width="wrap_content"
+                    android:layout_width="56dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="7dp"
+                    android:layout_marginRight="7dp"
+                    android:layout_marginBottom="97dp"
                     android:background="@color/colorAccent"
                     android:foregroundGravity="right|bottom"
-
                     android:onClick="favorite"
                     app:layout_constraintBottom_toBottomOf="@+id/spacer"
-                    app:layout_constraintRight_toLeftOf="@+id/spacer"
-                    />
+                    app:layout_constraintEnd_toEndOf="parent" />
 
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/map"
+                    android:layout_width="56dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="7dp"
+                    android:layout_marginRight="7dp"
+                    android:layout_marginBottom="27dp"
+                    android:background="@color/colorAccent"
+                    android:foregroundGravity="right|bottom"
+                    android:onClick="map"
+                    android:src="@drawable/ic_map"
+                    app:layout_constraintBottom_toBottomOf="@+id/spacer"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
                 <TextView
                     android:id="@+id/cafe_title"
                     android:layout_width="334dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
                     android:padding="3dip"
                     android:text="Title"
                     android:textColor="@android:color/background_dark"
                     android:textSize="40dp"
+                    app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                    app:layout_constraintEnd_toStartOf="@+id/fab"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cafeImage" />
 
                 <LinearLayout
@@ -118,26 +145,6 @@
 
                             <TextView
                                 android:padding="3dip"
-                                android:text="Location: "
-                                android:textColor="@android:color/background_dark"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/location"
-                                android:padding="3dip"
-                                android:text="lol"
-                                android:textColor="@android:color/black"
-                                android:textSize="16sp" />
-
-                        </TableRow>
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <TextView
-                                android:padding="3dip"
                                 android:text="Payment: "
                                 android:textColor="@android:color/background_dark"
                                 android:textSize="16sp"
@@ -156,7 +163,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray" />
 
                     <TextView
                         android:id="@+id/menu_header"
@@ -180,9 +187,10 @@
 
                 </LinearLayout>
 
-            </android.support.constraint.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
     </ScrollView>
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

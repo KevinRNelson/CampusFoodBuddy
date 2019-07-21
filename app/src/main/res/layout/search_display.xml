@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fffff0"
+    tools:context=".Search">
+
+    <include
+        android:id="@+id/include3"
+        layout="@layout/navigation_bar" />
+
+    <Button
+        android:id="@+id/searching"
+        style="@style/wotmButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginRight="160dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/rounded_button"
+        android:onClick="Searching"
+        android:text="Search"
+        android:textSize="17sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/expandableListView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.038"
+        tools:text="search" />
+
+    <SearchView
+        android:id="@+id/Searching"
+        android:layout_width="395dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:onClick="options"
+        android:queryHint="Search For Food"
+        android:saveEnabled="false"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+    </SearchView>
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="376dp"
+        android:layout_height="122dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:clipChildren="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:visibility="visible">
+
+            <ImageButton
+                android:id="@+id/button1"
+                style="@style/wotmButton"
+                android:layout_width="152dp"
+                android:layout_height="122dp"
+                android:layout_marginRight="25dip"
+                android:background="#FFFFFF"
+                android:contentDescription="@string/burger"
+                android:foreground="@mipmap/ic_burger"
+                android:onClick="getFood"
+                android:tag="burger"
+                android:visibility="visible"
+                tools:visibility="visible" />
+
+            <ImageButton
+                android:id="@+id/button2"
+                style="@style/wotmButton"
+                android:layout_width="152dp"
+                android:layout_height="122dp"
+                android:layout_marginRight="25dip"
+                android:background="#FFFFFF"
+                android:contentDescription="@string/chicken"
+                android:foreground="@mipmap/ic_chickenwing"
+                android:onClick="getFood"
+                android:tag="chicken"
+                android:visibility="visible"
+                tools:visibility="visible" />
+
+            <ImageButton
+                android:id="@+id/button3"
+                style="@style/wotmButton"
+                android:layout_width="152dp"
+                android:layout_height="122dp"
+                android:layout_marginRight="25dip"
+                android:background="#FFFFFF"
+                android:contentDescription="@string/vegetarian"
+                android:foreground="@mipmap/ic_vegetarian"
+                android:onClick="getFood"
+                android:tag="vegetarian"
+                android:visibility="visible"
+                tools:visibility="visible" />
+
+            <ImageButton
+                android:id="@+id/button4"
+                style="@style/wotmButton"
+                android:layout_width="152dp"
+                android:layout_height="122dp"
+                android:layout_marginRight="25dip"
+                android:background="#FFFFFF"
+                android:contentDescription="@string/vegan"
+                android:fitsSystemWindows="false"
+                android:foreground="@mipmap/ic_vegan"
+                android:onClick="getFood"
+                android:tag="vegan"
+                android:visibility="visible"
+                tools:visibility="visible" />
+
+            <ImageButton
+                android:id="@+id/button5"
+                style="@style/wotmButton"
+                android:layout_width="152dp"
+                android:layout_height="122dp"
+                android:background="#FFFFFF"
+                android:contentDescription="@string/coffee"
+                android:foreground="@mipmap/ic_coffee"
+                android:onClick="getFood"
+                android:tag="coffee"
+                android:visibility="visible"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="340dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="32dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@android:color/holo_blue_light"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searching"
+        tools:visibility="invisible" />
+
+
+    <ExpandableListView
+        android:id="@+id/expandableListView"
+        android:layout_width="326dp"
+        android:layout_height="279dp"
+        android:layout_marginTop="3dp"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0.5dp"
+        android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
+        app:layout_constraintEnd_toStartOf="@+id/include3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/include3"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+
+    </ExpandableListView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
