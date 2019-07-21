@@ -119,7 +119,6 @@ public class Search extends AppCompatActivity {
     }
 
     public void Search(View view) {
-
     }
 
     public void allLocation(View view) {
