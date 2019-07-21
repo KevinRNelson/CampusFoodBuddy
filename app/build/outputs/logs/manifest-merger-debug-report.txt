@@ -1,0 +1,282 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:2:1-64:12
+MERGED from [com.google.android.material:material:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/2f95fa71e30b92c9abbd0f5454c33d1b/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/4896c2cbc5e25b78c88da3bdd082d81a/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/f6952a703671ee0ec8119b8db843ced3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/0ef1ef813eee29410745dfba1b1b58ea/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/3c04bb19c1eeb6b023d43406234c858f/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/af17f387751c2f90dac33618464a941f/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/33155cd69fd8aa17b040ea4ec540c5e0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bdf14eb4dce6c7bce23429b6f88f8b01/AndroidManifest.xml:17:1-38:12
+MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/6c4f58d825a1d2e1feaf51992f3f9374/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/f332c9c50718ab946788cb0e6e1f5c20/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/318f1d571a95d4c681a09431a9c9b9c8/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.fragment:fragment:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/b3910c8b8674d23f475cc891524d9d30/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/e13fc546cf8450c29c5612b031f533a2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/a96216af398ad98ea8d4aac43ece5033/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/26bcd8dddb528f9d3f95b24454a8624a/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/53460f9d7869fac894cbce694eec68b8/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/0c698b43bf94631ae6a47545b6bd43fa/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/e5c2d2063a9613205e2d22efda031d46/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/f28624363a65abe2098dcb5c78930c9d/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/6b13788a1874556252b19d91b97d3b6c/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/2bcbb12ecd4034e72661ab068b83925e/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/66389d63988b5b76043237a83e3cdc72/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/9bc962edf9641bfbf3906f88d88a8184/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/58e5d40dd48d41a192d94d541a9f7052/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/aee8ed18704209fb9523128345a5a1cb/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bb2ac15080ef4848923a7fb4d8a076c1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/83dcb0643ae1d53163b2f76bd0f98cac/AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/19d5834716519a2282e0a420c5d83591/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/a95fa28fea560152a937d93fad0cfe5f/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/55800e9c5a2da9e4300453b872c2ef14/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/38cf3c972b0ded59654c6c0217712f86/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/035062cc93dae9cfeae22b19a7bef04c/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/12eedcd92691c377a1d1e151f4511771/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/923c8b862170fe30ba0288629fe08915/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/9e4e91aaf068c5274628698008503a9e/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/528dea0f583cccc3b45325303db0e39e/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/6a9088858307241725cf5b67c8e91b04/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:2:1-64:12
+	package
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:3:5-38
+		INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:2:1-64:12
+		INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:2:1-64:12
+		INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:10:5-79
+	android:name
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:10:22-76
+uses-permission#android.permission.INTERNET
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bdf14eb4dce6c7bce23429b6f88f8b01/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bdf14eb4dce6c7bce23429b6f88f8b01/AndroidManifest.xml:24:5-67
+	android:name
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:11:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:13:5-79
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bdf14eb4dce6c7bce23429b6f88f8b01/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bdf14eb4dce6c7bce23429b6f88f8b01/AndroidManifest.xml:23:5-79
+	android:name
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:13:22-76
+application
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:16:5-62:19
+MERGED from [com.google.android.material:material:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/2f95fa71e30b92c9abbd0f5454c33d1b/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/2f95fa71e30b92c9abbd0f5454c33d1b/AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/3c04bb19c1eeb6b023d43406234c858f/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/3c04bb19c1eeb6b023d43406234c858f/AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bdf14eb4dce6c7bce23429b6f88f8b01/AndroidManifest.xml:30:5-36:19
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bdf14eb4dce6c7bce23429b6f88f8b01/AndroidManifest.xml:30:5-36:19
+MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/6c4f58d825a1d2e1feaf51992f3f9374/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/6c4f58d825a1d2e1feaf51992f3f9374/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/f332c9c50718ab946788cb0e6e1f5c20/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/f332c9c50718ab946788cb0e6e1f5c20/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/318f1d571a95d4c681a09431a9c9b9c8/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/318f1d571a95d4c681a09431a9c9b9c8/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.core:core:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bb2ac15080ef4848923a7fb4d8a076c1/AndroidManifest.xml:22:5-89
+MERGED from [androidx.core:core:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bb2ac15080ef4848923a7fb4d8a076c1/AndroidManifest.xml:22:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/83dcb0643ae1d53163b2f76bd0f98cac/AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/83dcb0643ae1d53163b2f76bd0f98cac/AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bb2ac15080ef4848923a7fb4d8a076c1/AndroidManifest.xml:22:18-86
+	android:supportsRtl
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:21:9-35
+	android:label
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:19:9-41
+	android:roundIcon
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:20:9-54
+	android:icon
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:18:9-43
+	android:allowBackup
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:17:9-35
+	android:theme
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:22:9-40
+activity#mbccjlkn.whatsonthemenu.MainActivity
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:42:9-48:20
+	android:name
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:42:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:43:13-47:29
+action#android.intent.action.MAIN
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:44:17-69
+	android:name
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:44:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:46:17-77
+	android:name
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:46:27-74
+activity#mbccjlkn.whatsonthemenu.DiningHallSelection
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:49:9-57
+	android:name
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:49:19-54
+activity#mbccjlkn.whatsonthemenu.CafeSelection
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:50:9-51
+	android:name
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:50:19-48
+activity#mbccjlkn.whatsonthemenu.FoodTruckSelection
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:51:9-56
+	android:name
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:51:19-53
+activity#mbccjlkn.whatsonthemenu.CafeDisplay
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:52:9-49
+	android:name
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:52:19-46
+activity#mbccjlkn.whatsonthemenu.FavoritesSelection
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:53:9-56
+	android:name
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:53:19-53
+activity#mbccjlkn.whatsonthemenu.DiningHallDisplayPage
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:54:9-59
+	android:name
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:54:19-56
+activity#mbccjlkn.whatsonthemenu.Search
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:55:9-44
+	android:name
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:55:19-41
+activity#mbccjlkn.whatsonthemenu.Preference
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:56:9-48
+	android:name
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:56:19-45
+activity#mbccjlkn.whatsonthemenu.mainMenu
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:57:9-46
+	android:name
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:57:19-43
+meta-data#com.google.android.geo.API_KEY
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:58:9-60:71
+	android:value
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:60:13-68
+	android:name
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:59:13-58
+activity#mbccjlkn.whatsonthemenu.Mapview
+ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:61:9-45
+	android:name
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml:61:19-42
+uses-sdk
+INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml
+INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml
+MERGED from [com.google.android.material:material:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/2f95fa71e30b92c9abbd0f5454c33d1b/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/2f95fa71e30b92c9abbd0f5454c33d1b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/4896c2cbc5e25b78c88da3bdd082d81a/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/4896c2cbc5e25b78c88da3bdd082d81a/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/f6952a703671ee0ec8119b8db843ced3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/f6952a703671ee0ec8119b8db843ced3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/0ef1ef813eee29410745dfba1b1b58ea/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/0ef1ef813eee29410745dfba1b1b58ea/AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/3c04bb19c1eeb6b023d43406234c858f/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/3c04bb19c1eeb6b023d43406234c858f/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/af17f387751c2f90dac33618464a941f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/af17f387751c2f90dac33618464a941f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/33155cd69fd8aa17b040ea4ec540c5e0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/33155cd69fd8aa17b040ea4ec540c5e0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bdf14eb4dce6c7bce23429b6f88f8b01/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bdf14eb4dce6c7bce23429b6f88f8b01/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/6c4f58d825a1d2e1feaf51992f3f9374/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/6c4f58d825a1d2e1feaf51992f3f9374/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/f332c9c50718ab946788cb0e6e1f5c20/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/f332c9c50718ab946788cb0e6e1f5c20/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/318f1d571a95d4c681a09431a9c9b9c8/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/318f1d571a95d4c681a09431a9c9b9c8/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/b3910c8b8674d23f475cc891524d9d30/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/b3910c8b8674d23f475cc891524d9d30/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/e13fc546cf8450c29c5612b031f533a2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/e13fc546cf8450c29c5612b031f533a2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/a96216af398ad98ea8d4aac43ece5033/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/a96216af398ad98ea8d4aac43ece5033/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/26bcd8dddb528f9d3f95b24454a8624a/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/26bcd8dddb528f9d3f95b24454a8624a/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/53460f9d7869fac894cbce694eec68b8/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/53460f9d7869fac894cbce694eec68b8/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/0c698b43bf94631ae6a47545b6bd43fa/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/0c698b43bf94631ae6a47545b6bd43fa/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/e5c2d2063a9613205e2d22efda031d46/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/e5c2d2063a9613205e2d22efda031d46/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/f28624363a65abe2098dcb5c78930c9d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/f28624363a65abe2098dcb5c78930c9d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/6b13788a1874556252b19d91b97d3b6c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/6b13788a1874556252b19d91b97d3b6c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/2bcbb12ecd4034e72661ab068b83925e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/2bcbb12ecd4034e72661ab068b83925e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/66389d63988b5b76043237a83e3cdc72/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/66389d63988b5b76043237a83e3cdc72/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/9bc962edf9641bfbf3906f88d88a8184/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/9bc962edf9641bfbf3906f88d88a8184/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/58e5d40dd48d41a192d94d541a9f7052/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/58e5d40dd48d41a192d94d541a9f7052/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/aee8ed18704209fb9523128345a5a1cb/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/aee8ed18704209fb9523128345a5a1cb/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bb2ac15080ef4848923a7fb4d8a076c1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bb2ac15080ef4848923a7fb4d8a076c1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/83dcb0643ae1d53163b2f76bd0f98cac/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/83dcb0643ae1d53163b2f76bd0f98cac/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/19d5834716519a2282e0a420c5d83591/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/19d5834716519a2282e0a420c5d83591/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/a95fa28fea560152a937d93fad0cfe5f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/a95fa28fea560152a937d93fad0cfe5f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/55800e9c5a2da9e4300453b872c2ef14/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/55800e9c5a2da9e4300453b872c2ef14/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/38cf3c972b0ded59654c6c0217712f86/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/38cf3c972b0ded59654c6c0217712f86/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/035062cc93dae9cfeae22b19a7bef04c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/035062cc93dae9cfeae22b19a7bef04c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/12eedcd92691c377a1d1e151f4511771/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/12eedcd92691c377a1d1e151f4511771/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/923c8b862170fe30ba0288629fe08915/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/923c8b862170fe30ba0288629fe08915/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/9e4e91aaf068c5274628698008503a9e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/9e4e91aaf068c5274628698008503a9e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/528dea0f583cccc3b45325303db0e39e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/528dea0f583cccc3b45325303db0e39e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/6a9088858307241725cf5b67c8e91b04/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/6a9088858307241725cf5b67c8e91b04/AndroidManifest.xml:20:5-44
+INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml
+INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml
+		ADDED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/kevinnelson/Documents/Classes/CMPS 115/CampusFoodBuddy-search-tab/app/src/main/AndroidManifest.xml
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bdf14eb4dce6c7bce23429b6f88f8b01/AndroidManifest.xml:26:5-28:35
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bdf14eb4dce6c7bce23429b6f88f8b01/AndroidManifest.xml:27:9-41
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bdf14eb4dce6c7bce23429b6f88f8b01/AndroidManifest.xml:28:9-32
+uses-library#org.apache.http.legacy
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bdf14eb4dce6c7bce23429b6f88f8b01/AndroidManifest.xml:33:9-35:40
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bdf14eb4dce6c7bce23429b6f88f8b01/AndroidManifest.xml:35:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/bdf14eb4dce6c7bce23429b6f88f8b01/AndroidManifest.xml:34:13-50
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/6c4f58d825a1d2e1feaf51992f3f9374/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/6c4f58d825a1d2e1feaf51992f3f9374/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/6c4f58d825a1d2e1feaf51992f3f9374/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/6c4f58d825a1d2e1feaf51992f3f9374/AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/318f1d571a95d4c681a09431a9c9b9c8/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/318f1d571a95d4c681a09431a9c9b9c8/AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/kevinnelson/.gradle/caches/transforms-2/files-2.1/318f1d571a95d4c681a09431a9c9b9c8/AndroidManifest.xml:24:13-58
