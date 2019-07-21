@@ -5,12 +5,16 @@
     android:layout_height="match_parent"
     android:id="@+id/layout">
 
-    <fragment
+    <include layout="@layout/navigation_menu" />
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/map"
         class="com.google.android.gms.maps.SupportMapFragment"
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="613dp" />
+
+
+
 </FrameLayout>
 
 
