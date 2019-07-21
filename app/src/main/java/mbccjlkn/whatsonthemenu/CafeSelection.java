@@ -19,7 +19,6 @@ public class CafeSelection extends AppCompatActivity {
         setContentView(R.layout.activity_cafe_selection);
     }
 
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -28,7 +27,7 @@ public class CafeSelection extends AppCompatActivity {
         ArrayList<View> allButtons = vg.getTouchables();
 
         for (View b: allButtons){
-            if(b.getId() != R.id.search_btn && b.getId() != R.id.main_menu_btn && b.getId() != R.id.preferences && b.getId() != R.id.favorite) {
+            if(b.getId() != R.id.search_btn && b.getId() != R.id.main_menu_btn && b.getId() != R.id.preferences && b.getId() != R.id.favorite && b.getId() != R.id.preferences) {
                 OpenClosedBehavior.colorClosed((Button) b);
             }
         }

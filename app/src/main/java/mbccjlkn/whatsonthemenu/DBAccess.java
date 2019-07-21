@@ -144,13 +144,6 @@ public class DBAccess {
         values.put("tag", tag);
 
         database.insert("Foods", null, values);
-
-        Log.d("Foods", values + "");
-
-        ArrayList<String> menu = viewFood(eateryId, category);
-        Log.d("Foods", "number of foods = " + menu.size());
-
-        Log.d("Foods", "tag" + tag);
     }
 
 
@@ -159,5 +152,59 @@ public class DBAccess {
     // post: removes all dining hall food from the Foods table
     public void removeDiningHallFood(){
         database.delete("Foods", "eateryID > 20", null);
+    }
+
+    // getFoodByTag()
+    // pre:
+    // post:
+    public ArrayList<ArrayList <String>> getFoodByTag(String keyword){
+        ArrayList<ArrayList <String>> menu = new ArrayList<ArrayList <String>>();
+
+        String[] eateryNames = {
+                "Cruz N' Gourmet",
+                "Drunk Monkey",
+                "Raymond's Catering",
+                "Banana Joe's (Crown)",
+                "Bowls (Porter)",
+                "College 8 Cafe",
+                "Cowell Coffee Shop",
+                "Express Store (Quarry)",
+                "Global Village Cafe (Mchenry)",
+                "Iveta (Quarry)",
+                "Kresge Co-op",
+                "Oakes Cafe",
+                "Owl's Nest (Kresge)",
+                "Perk Coffee (J Baskin)",
+                "Perk Coffee (Earth and Marine)",
+                "Perk Coffee (Physical Sciences)",
+                "Perk Coffee (Terra Fresca)",
+                "Stevenson Coffee House",
+                "Terra Fresca (College 9/10)",
+                "Vivas (Merrill)",
+                "College 9/10",
+                "Cowell/Stevenson",
+                "Crown/Merrill",
+                "Porter/Kresge",
+                "Rachel Carson/Oakes" };
+
+        Log.d("Search", keyword);
+
+        String filters = "SELECT name, price, eateryID FROM Foods WHERE name LIKE '%" +keyword+ "%' OR tag LIKE '%" +keyword.replace(" ","")+ "%' OR category LIKE '%" +keyword+ "%';";
+
+        Cursor cr = database.rawQuery(filters, null);
+
+        ArrayList <String> nameAndPrice = new ArrayList <String>();
+        ArrayList <String> location = new ArrayList <String>();
+
+        int i = 0;
+        while(cr.moveToNext()) {
+            nameAndPrice.add(cr.getString(0) + "\t\t" + cr.getString(1));
+            location.add(eateryNames[Integer.parseInt(cr.getString(2)) - 1]);
+        }
+
+        menu.add(nameAndPrice);
+        menu.add(location);
+
+        return menu;
     }
 }

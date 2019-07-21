@@ -21,6 +21,13 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+import android.os.Build;
+import android.os.Bundle;
+
+
+import androidx.annotation.RequiresApi;
+import androidx.fragment.app.FragmentActivity;
+
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -56,6 +63,7 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
     Location user_location;
     boolean checkOncompelte = false;
     private URLConnection urlConnection;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,8 +198,6 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
             return;
         }
         mMap.setMyLocationEnabled(true);
-
-
 
     }
     @Override

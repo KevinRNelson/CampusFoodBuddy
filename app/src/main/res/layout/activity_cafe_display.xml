@@ -8,7 +8,8 @@
 
     <include layout="@layout/navigation_bar"/>
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
+
 
         android:id="@+id/activity_expandable_scroll_view"
         android:layout_width="match_parent"
@@ -31,10 +32,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/cafeImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_width="496dp"
+                    android:layout_height="162dp"
+                    android:adjustViewBounds="true"
+                    android:onClick="map"
+                    android:scaleType="fitCenter"
+                    android:background="#FFFFFF"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/wotm_icon" />
@@ -43,31 +49,36 @@
                     android:id="@+id/spacer"
                     android:layout_width="20dp"
                     android:layout_height="15dp"
-                    app:layout_constraintRight_toRightOf="@+id/cafeImage"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cafeImage" />
-
-                <Button
-                    android:id="@+id/cafe_mapBTN"
-                    android:layout_width="64dp"
-                    android:layout_height="37dp"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/rounded_button"
-                    android:onClick="map"
-                    android:text="Map"
-                    tools:layout_editor_absoluteX="347dp"
-                    tools:layout_editor_absoluteY="165dp" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/fab"
-                    android:layout_width="wrap_content"
+                    android:layout_width="56dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="7dp"
+                    android:layout_marginRight="7dp"
+                    android:layout_marginBottom="97dp"
                     android:background="@color/colorAccent"
                     android:foregroundGravity="right|bottom"
-
                     android:onClick="favorite"
                     app:layout_constraintBottom_toBottomOf="@+id/spacer"
-                    app:layout_constraintRight_toLeftOf="@+id/spacer" />
+                    app:layout_constraintEnd_toEndOf="parent" />
 
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/map"
+                    android:layout_width="56dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="7dp"
+                    android:layout_marginRight="7dp"
+                    android:layout_marginBottom="27dp"
+                    android:background="@color/colorAccent"
+                    android:foregroundGravity="right|bottom"
+                    android:onClick="map"
+                    android:src="@drawable/ic_map"
+                    app:layout_constraintBottom_toBottomOf="@+id/spacer"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
                 <TextView
                     android:id="@+id/cafe_title"
@@ -125,26 +136,6 @@
                                 android:id="@+id/hour_details"
                                 android:padding="3dip"
                                 android:text="hours not set"
-                                android:textColor="@android:color/black"
-                                android:textSize="16sp" />
-
-                        </TableRow>
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <TextView
-                                android:padding="3dip"
-                                android:text="Location: "
-                                android:textColor="@android:color/background_dark"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/location"
-                                android:padding="3dip"
-                                android:text="lol"
                                 android:textColor="@android:color/black"
                                 android:textSize="16sp" />
 

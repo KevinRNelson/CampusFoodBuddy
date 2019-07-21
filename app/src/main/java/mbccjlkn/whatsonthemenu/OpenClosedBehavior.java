@@ -21,7 +21,7 @@ public class OpenClosedBehavior {
     private static boolean eateryClosed(Button b){
         DBAccess db = MainActivity.dba;
         int id = Integer.parseInt(b.getTag().toString());
-        // Log.d("Closed", db.isClosed(id) + "");
+        Log.d("Closed", b.getTag().toString());
         return db.isClosed(id);
     }
 }

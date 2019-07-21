@@ -11,7 +11,6 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
     }
     buildTypes {
         release {
@@ -52,6 +51,5 @@ dependencies {
 
     implementation 'com.google.maps:google-maps-services:0.9.3'
     implementation 'org.slf4j:slf4j-simple:1.7.25'
-
 
 }
