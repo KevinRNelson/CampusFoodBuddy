@@ -1,0 +1,898 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fffff0"
+    tools:context=".mainMenu">
+
+
+    <ScrollView
+        android:id="@+id/scrollView6"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#86FFC107"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="71dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/background" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="-25dp"
+                android:layout_marginRight="50dp"
+                android:background="#FDFDFD"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="CampusFoodBuddy"
+                    android:textAlignment="center"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:background="#035BF4"
+                android:onClick="diningHall"
+                android:text="Dining Halls"
+                android:textColor="#D8FFC107" />
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="230dp"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/c9c10"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="diningHall">
+
+
+                        <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/c9c10" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="College 9 and 10"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/crownmerril"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="diningHall">
+
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            app:srcCompat="@drawable/merrillcrown"
+                            tools:scaleType="fitXY" />
+
+                        <TextView
+                            android:id="@+id/textView13"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Merrill Crown"
+                            android:textAlignment="center"
+                            tools:textSize="23sp" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/kresge"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="diningHall">
+
+
+                        <ImageView
+                            android:id="@+id/kresgeAndPorter"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/kresge" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Kresge and Porter"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/CowellStevensonDH"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="diningHall">
+
+
+                        <ImageView
+                            android:id="@+id/cowellAndStevenson"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/cowell" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Cowell and Stevenson"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/oakes"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="30dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="diningHall">
+
+
+                        <ImageView
+                            android:id="@+id/c8AndOakes"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/oaks" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Oakes and College 8"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <Button
+                android:id="@+id/cafe"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:background="#035BF4"
+                android:onClick="cafe"
+                android:text="Cafe"
+                android:textColor="#D8FFC107" />
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="230dp"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/BananaJoe"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="cafe">
+
+
+                        <ImageView
+                            android:id="@+id/bj"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/bananajoes" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Banana Joe's"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/Bowls"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="cafe">
+
+
+                        <ImageView
+                            android:id="@+id/bowls"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/bowls" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Bowls"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/College8Cafe"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="cafe">
+
+
+                        <ImageView
+                            android:id="@+id/c8cafe"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/c8cafe" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="College 8 Cafe"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/CowellCoffeeShop"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="cafe">
+
+
+                        <ImageView
+                            android:id="@+id/cowellcafe"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/cowellcoffeeshop" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Cowell Coffee Shop"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/ExpressStore"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="cafe">
+
+
+                        <ImageView
+                            android:id="@+id/expstore"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/expressstore" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Express Store(QUARRY)"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/GlobalVillageCafe"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="cafe">
+
+
+                        <ImageView
+                            android:id="@+id/villagecafe"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/globalvillagecafe" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Global Village Cafe"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/Iveta"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="cafe">
+
+
+                        <ImageView
+                            android:id="@+id/ivetacafe"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/iveta" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Iveta"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/KresgeCoop"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="cafe">
+
+
+                        <ImageView
+                            android:id="@+id/kresgefood"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/kresgefood" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Kresge Food Co-op"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/OakesCafe"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="cafe">
+
+
+                        <ImageView
+                            android:id="@+id/oakescafe"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/oakescafe" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Oakes Cafe"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/OwlsNest"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="cafe">
+
+
+                        <ImageView
+                            android:id="@+id/owlnest"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/owlsnest" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Owl's Nest Cafe"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/PerkCoffeeBaskin"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="cafe">
+
+
+                        <ImageView
+                            android:id="@+id/perksjbe"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/perkjbaskin" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Perk Coffee (J.Baskin)"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/PerkCoffeeEAM"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="cafe">
+
+
+                        <ImageView
+                            android:id="@+id/perksEAM"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/perkearthmarine" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Perk Coffee(Earth and Marine)"
+                            android:textAlignment="center"
+                            android:textSize="20sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/PerkCoffeePhys"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="cafe">
+
+
+                        <ImageView
+                            android:id="@+id/perksPhy"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/perkphysic" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Perk Coffee(Physical Science)"
+                            android:textAlignment="center"
+                            android:textSize="20sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/PerkCoffeeTerraFresca"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="cafe">
+
+
+                        <ImageView
+                            android:id="@+id/perksc9c10"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/perkc9c10" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Perk Coffee(Terra Fresca)"
+                            android:textAlignment="center"
+                            android:textSize="20sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/StevensonCoffeeHouse"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="cafe">
+
+
+                        <ImageView
+                            android:id="@+id/stevensoncoffee"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/stevensoncoffee" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Stevenson Coffee Shop"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/TerraFresca"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="cafe">
+
+
+                        <ImageView
+                            android:id="@+id/terra"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/terrafresca" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Terra Fresca"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/VivasMexicanRestaurant"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="30dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="cafe">
+
+
+                        <ImageView
+                            android:id="@+id/vivas"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/vivas" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Vivas"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <Button
+                android:id="@+id/foodTruck"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:background="#035BF4"
+                android:onClick="foodTrucks"
+                android:text="FoodTrucks"
+                android:textColor="#D8FFC107" />
+
+            <HorizontalScrollView
+                android:id="@+id/foodtrucks"
+                android:layout_width="wrap_content"
+                android:layout_height="230dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="50dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/CruzGourmet"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="foodTrucks">
+
+
+                        <ImageView
+                            android:id="@+id/cruzft"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/cruzgourmet" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Cruz N'Gourmet"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/RaymondCatering"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="foodTrucks">
+
+
+                        <ImageView
+                            android:id="@+id/raymonds"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/raymonds" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Raymond's Catering"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/DrunkMonkey"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="30dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:onClick="foodTrucks">
+
+
+                        <ImageView
+                            android:id="@+id/drunkmonkey"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="30dp"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/drunkmonkey" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="170dp"
+                            android:text="Drunk Monkey"
+                            android:textAlignment="center"
+                            android:textSize="23sp" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <include
+        android:id="@+id/include4"
+        layout="@layout/navigation_bar"
+        android:onClick="diningHall"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
