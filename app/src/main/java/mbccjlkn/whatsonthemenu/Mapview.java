@@ -78,12 +78,13 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
     public void getLastKnownLocation() {
         Log.d("check","LastKnow Called");
         if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
+            Log.d("check","permission denied");
             return;
         }
-        mFusedLocationClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
-            @Override
-            public void onComplete(@NonNull Task<Location> task) {
+        Log.d("check"," get to task");
+        mFusedLocationClient.getLastLocation().addOnCompleteListener(task ->  {
+            //@Override
+            //public void onComplete(@NonNull Task<Location> task) {
                 Log.d("check", "on Complete called");
                 if (task.isSuccessful()) {
                     user_location = task.getResult();
@@ -114,7 +115,7 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
                 }else{
                     Log.d("check", "fail ----------");
                 }
-            }
+           // }
         });
     }
 
