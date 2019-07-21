@@ -4,40 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DiningHallSelection">
+    tools:context=".mainMenu"
+    android:background="#fffff0">
 
-    <include layout="@layout/navigation_bar"/>
+    <include
+        layout="@layout/navigation_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="What's On The Menu?"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp" />
+
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="555dp">
+            android:layout_height="498dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginBottom="48dp"
-                    android:text="Select a Dining Hall"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="24sp"
-                    app:layout_constraintBottom_toTopOf="@id/CowellStevensonDH"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingBottom="20dp"
+                    app:layout_constraintBottom_toTopOf="@+id/DHBTN"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.50"
+                    app:srcCompat="@drawable/wotm_icon" />
 
                 <Button
-                    android:id="@+id/CowellStevensonDH"
+                    android:id="@+id/DHBTN"
                     style="@style/wotmButton"
                     android:layout_width="300dp"
                     android:layout_height="60dp"
@@ -45,19 +59,17 @@
                     android:layout_marginTop="7dp"
                     android:layout_marginBottom="7dp"
                     android:background="@drawable/rounded_button"
-                    android:onClick="openDH"
+                    android:onClick="diningHall"
                     android:padding="10dp"
-                    android:tag="22"
-                    android:text="Cowell/Stevenson"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@id/RachelCarsonOakesDH"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="Dining Hall"
+                    app:layout_constraintBottom_toTopOf="@+id/CafeBTN"
+                    app:layout_constraintEnd_toStartOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/textView5" />
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
                 <Button
-                    android:id="@+id/PorterKresgeDH"
+                    android:id="@+id/CafeBTN"
                     style="@style/wotmButton"
                     android:layout_width="300dp"
                     android:layout_height="60dp"
@@ -65,19 +77,17 @@
                     android:layout_marginTop="7dp"
                     android:layout_marginBottom="7dp"
                     android:background="@drawable/rounded_button"
-                    android:onClick="openDH"
+                    android:onClick="cafe"
                     android:padding="10dp"
-                    android:tag="24"
-                    android:text="Porter/Kresge"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@id/CrownMerrillDH"
+                    android:text="Cafe/Restaurants"
+                    app:layout_constraintBottom_toTopOf="@+id/FoodTruckBTN"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/College910DH" />
+                    app:layout_constraintTop_toBottomOf="@+id/DHBTN" />
 
                 <Button
-                    android:id="@+id/RachelCarsonOakesDH"
+                    android:id="@+id/FoodTruckBTN"
                     style="@style/wotmButton"
                     android:layout_width="300dp"
                     android:layout_height="60dp"
@@ -85,60 +95,34 @@
                     android:layout_marginTop="7dp"
                     android:layout_marginBottom="7dp"
                     android:background="@drawable/rounded_button"
-                    android:onClick="openDH"
+                    android:onClick="foodTrucks"
                     android:padding="10dp"
-                    android:tag="25"
-                    android:text="Rachel Carson/Oakes"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@id/College910DH"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/CowellStevensonDH" />
-
-                <Button
-                    android:id="@+id/College910DH"
-                    style="@style/wotmButton"
-                    android:layout_width="300dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginBottom="7dp"
-                    android:background="@drawable/rounded_button"
-                    android:onClick="openDH"
-                    android:padding="10dp"
-                    android:tag="21"
-                    android:text="College 9/10"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@id/PorterKresgeDH"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/RachelCarsonOakesDH" />
-
-                <Button
-                    android:id="@+id/CrownMerrillDH"
-                    style="@style/wotmButton"
-                    android:layout_width="300dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginBottom="7dp"
-                    android:background="@drawable/rounded_button"
-                    android:onClick="openDH"
-                    android:padding="10dp"
-                    android:tag="23"
-                    android:text="Crown/Merrill"
-                    android:textSize="20sp"
+                    android:text="Food Trucks"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/PorterKresgeDH" />
+                    app:layout_constraintTop_toBottomOf="@+id/CafeBTN" />
+
+                <!--<Button
+                    android:id="@+id/FavoritesBTN"
+                    style="@style/wotmButton"
+                    android:layout_width="300dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/rounded_button"
+                    android:onClick="favorites"
+                    android:padding="10dp"
+                    android:text="Favorites"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/FoodTruckBTN" />-->
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
