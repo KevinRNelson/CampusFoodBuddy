@@ -119,8 +119,7 @@ public class Search extends AppCompatActivity {
     }
 
     public void Search(View view) {
-        Intent I = new Intent(this, Search.class);
-        startActivity(I);
+        
     }
 
     public void Preference(View view) {
