@@ -4,18 +4,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Space;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class FavoritesSelection extends AppCompatActivity {
 
     public int i;
-    public static String[] eateryNames = { "Cruz N' Gourmet",
+    public static String[] eateryNames = {
+            "Cruz N' Gourmet",
             "Drunk Monkey",
             "Raymond's Catering",
             "Banana Joe's (Crown)",
@@ -76,17 +78,17 @@ public class FavoritesSelection extends AppCompatActivity {
 
             buttons[i].setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    if ((int)view.getId() < 21){
+                    //if ((int)view.getId() < 21){
                         Intent I = new Intent(FavoritesSelection.this, CafeDisplay.class);
                         I.putExtra("id", (int)view.getId());
                         startActivity(I);
                         //startActivity(new Intent(FavoritesSelection.this, FavoritesSelection.class));
-                    } else {
+                    /*} else {
                         Intent I = new Intent(FavoritesSelection.this, DiningHallDisplayPage.class);
                         I.putExtra("id", (int)view.getId());
                         startActivity(I);
                         //startActivity(new Intent(FavoritesSelection.this, FavoritesSelection.class));
-                    }
+                    }*/
                 }
             });
 
@@ -101,7 +103,9 @@ public class FavoritesSelection extends AppCompatActivity {
             ArrayList<View> allButtons = vg.getTouchables();
 
             for (View b: allButtons){
-                OpenClosedBehavior.colorClosed((Button) b);
+                if(b.getId() != R.id.search_btn && b.getId() != R.id.main_menu_btn && b.getId() != R.id.preferences && b.getId() != R.id.favorite ) {
+                    OpenClosedBehavior.colorClosed((Button) b);
+                }
             }
         }
     }
@@ -123,5 +127,25 @@ public class FavoritesSelection extends AppCompatActivity {
         if (savedIds.length != 0)
             startActivity(new Intent(FavoritesSelection.this, FavoritesSelection.class));
         finish();
+    }
+
+    public void MainMenu(View view) {
+        Intent I = new Intent(this,mainMenu.class);
+        I.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivityIfNeeded(I,0);
+    }
+
+    public void Search(View view) {
+        Intent I = new Intent(this,Search.class);
+        startActivity(I);
+    }
+
+    public void Preference(View view) {
+        Intent I = new Intent(this,Preference.class);
+        startActivity(I);
+    }
+
+    public void favorites(View view){
+
     }
 }

@@ -7,8 +7,8 @@ import android.content.res.AssetManager;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -22,14 +22,23 @@ import java.util.ArrayList;
 
 public class DiningHallDisplayPage extends AppCompatActivity {
 
+    private static final String key = "id";
     DBAccess db = MainActivity.dba;
-    Button menu;
-
+    //Button menu;
+    Button map;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dining_hall_display_page);
-        menu = (Button) findViewById(R.id.menuBTN);
+
+        map = (Button) findViewById(R.id.mapBTN);
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                map();
+            }
+        });
+
 
         final Bundle extras = getIntent().getExtras();
         int current = extras.getInt("id");
@@ -90,15 +99,22 @@ public class DiningHallDisplayPage extends AppCompatActivity {
 
         TextView loc = findViewById(R.id.location);
         loc.setText(db.getLocation(extras.getInt("id")));
+        //loc.setText(list.get(7));
 
     }
 
-    public void menu(View view){
-        Bundle extras = getIntent().getExtras();
-        String url = db.getURL(extras.getInt("id"));
-        Intent I = new Intent(Intent.ACTION_VIEW);
-        I.setData(Uri.parse(url));
-        startActivity(I);
+
+
+    public void map(){
+
+        Intent intent = new Intent(this, Mapview.class);
+        //Bundle k  = new Bundle();
+        final Bundle extras = getIntent().getExtras();
+        int current = extras.getInt("id");
+        Bundle k = new Bundle();
+        k.putInt(key, current );
+        intent.putExtras(k);
+        startActivity(intent);
     }
 
     // favorite()
