@@ -115,22 +115,31 @@ public class CafeDisplay extends AppCompatActivity {
                 Log.d("SearchList", groupPosition + " " + childPosition);
 
                 String eatery = expandableListTitle.get(groupPosition);
-                String temp = expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition);
+                String tempFood = expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition);
 
+                //gets just the food name
                 String food = "";
-                for (int i = 0; i < temp.length(); i++){
-                    if (!temp.substring(i, i + 1).equals("\t"))
-                        food += temp.substring(i, i + 1);
-                    else
+                for (int i = 0; i < tempFood.length(); i++){
+                    if (!tempFood.substring(i, i + 1).equals("\t")){
+                        char c = tempFood.charAt(i);
+                        if (Character.isLetter(c)){
+                            food += c;
+                        }
+                    } else {
                         break;
+                    }
                 }
 
                 SharedPreferences sp = CafeDisplay.this.getSharedPreferences("WOTM", Context.MODE_PRIVATE);
                 String text = sp.getString("Meals", "");
 
-                text += "-" + eatery + "_" + food;
-
-                Toast.makeText(getApplicationContext(), "Favorited " + food, Toast.LENGTH_SHORT).show();
+                if (!text.contains("-" + eatery + "_" + food)){
+                    text += "-" + eatery + "_" + food;
+                    Toast.makeText(getApplicationContext(), "Favorited " + food, Toast.LENGTH_SHORT).show();
+                } else {
+                    text = text.replace("-" + eatery + "_" + food, "");
+                    Toast.makeText(getApplicationContext(), "Unfavorited " + food, Toast.LENGTH_SHORT).show();
+                }
 
                 sp.edit().clear().commit();
                 sp.edit().putString("Meals", text).apply();
@@ -241,20 +250,7 @@ public class CafeDisplay extends AppCompatActivity {
     }
 
     public void favorites(View view){
-        SharedPreferences sp = this.getSharedPreferences("WOTM", Context.MODE_PRIVATE);
-        String spText = sp.getString("Info", "");
-        ArrayList<Integer> Fav = new ArrayList<Integer>();
-
-        String[] savedIds;
-        if (spText.equals(""))
-            savedIds = new String[0];
-        else
-            savedIds = spText.split("-");
-
-        if(savedIds.length == 0)
-            Toast.makeText(view.getContext(), "No Favorites To Display", Toast.LENGTH_LONG).show();
-        else
-            startActivity(new Intent(this, FavoritesSelection.class));
+        startActivity(new Intent(this, FavoritesSelection.class));
     }
 
     // favorite()
