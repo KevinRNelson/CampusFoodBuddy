@@ -312,9 +312,8 @@ public class FavoritesSelection extends AppCompatActivity {
                     }
                 }
 
-                Intent I = new Intent(FavoritesSelection.this, Search.class);
-
-                startActivity(I);
+                //Intent I = new Intent(FavoritesSelection.this, Search.class);
+                //startActivity(I);
 
                 return false;
             }
