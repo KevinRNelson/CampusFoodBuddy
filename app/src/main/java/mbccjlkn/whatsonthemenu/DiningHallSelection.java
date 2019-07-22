@@ -68,19 +68,6 @@ public class DiningHallSelection extends AppCompatActivity {
     }
 
     public void favorites(View view){
-        SharedPreferences sp = this.getSharedPreferences("WOTM", Context.MODE_PRIVATE);
-        String spText = sp.getString("Info", "");
-        ArrayList<Integer> Fav = new ArrayList<Integer>();
-
-        String[] savedIds;
-        if (spText.equals(""))
-            savedIds = new String[0];
-        else
-            savedIds = spText.split("-");
-
-        if(savedIds.length == 0)
-            Toast.makeText(view.getContext(), "No Favorites To Display", Toast.LENGTH_LONG).show();
-        else
-            startActivity(new Intent(this, FavoritesSelection.class));
+        startActivity(new Intent(this, FavoritesSelection.class));
     }
 }

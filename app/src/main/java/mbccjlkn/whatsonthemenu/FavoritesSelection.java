@@ -3,19 +3,47 @@ package mbccjlkn.whatsonthemenu;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.AssetManager;
+import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.Constraints;
+
+import android.text.Layout;
+import android.util.TypedValue;
+import android.widget.ImageView;
+import android.widget.LinearLayout.LayoutParams;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
 import android.widget.Space;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class FavoritesSelection extends AppCompatActivity {
     private static final String key = "id";
+    DBAccess db = MainActivity.dba;
     public int i;
+    GetFavorites getFavorites;
+
+    LinearLayout HLL;
+
+    ExpandableListView expandableListView;
+    ExpandableListAdapter expandableListAdapter;
+    List<String> expandableListTitle;
+    HashMap<String, List<String>> expandableListDetail;
+
     public static String[] eateryNames = {
             "Cruz N' Gourmet",
             "Drunk Monkey",
@@ -48,20 +76,116 @@ public class FavoritesSelection extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites_selection);
 
-        LinearLayout ll = (LinearLayout)findViewById(R.id.FavLL);
+        HLL = (LinearLayout) findViewById(R.id.HorizontalLL);
 
-        SharedPreferences sp = this.getSharedPreferences("WOTM", Context.MODE_PRIVATE);
-        String spText = sp.getString("Info", "");
+        SharedPreferences sp = this.getSharedPreferences("WOT", Context.MODE_PRIVATE);
+        String spText = sp.getString("Meals", "");
+
+
+        getFavorites = new GetFavorites(this);
+        getFavorites.execute(spText);
+
+        sp = this.getSharedPreferences("WOTM", Context.MODE_PRIVATE);
+        spText = sp.getString("Info", "");
         ArrayList<Integer> Fav = new ArrayList<Integer>();
-
         String[] savedIds = spText.split("-");
 
-        for (int i = 0; i < savedIds.length; i++)
-            Fav.add(Integer.parseInt(savedIds[i]));
+        if (savedIds.length >= 1){
+            if(savedIds[0] == "") {
 
-        Button[] buttons = new Button[Fav.size()];
-        Space[] spaces = new Space[Fav.size()];
+            } else {
+                for (int i = 0; i < savedIds.length; i++)
+                    Fav.add(Integer.parseInt(savedIds[i]));
 
+                CardView[] cards = new CardView[Fav.size()];
+                Space[] spaces = new Space[Fav.size()];
+
+                for (i = 0; i < cards.length; i++) {
+                    int current = Fav.get(i);
+                    // Initialize a new CardView
+                    CardView card = new CardView(getApplicationContext());
+
+                    // Set the CardView layoutParams
+                    LayoutParams params = new LayoutParams(
+                            700,
+                            600
+                    );
+
+                    LayoutParams params_text = new LayoutParams(
+                            700,
+                            400
+                    );
+
+                    card.setLayoutParams(params);
+
+                    // Set CardView corner radius
+                    card.setRadius(9);
+
+                    // Set cardView content padding
+                    card.setContentPadding(15, 15, 15, 15);
+
+                    // Set a background color for CardView
+                    card.setCardBackgroundColor(getResources().getColor(R.color.colorAccent));
+
+                    // Set the CardView maximum elevation
+                    card.setMaxCardElevation(15);
+
+                    // Set CardView elevation
+                    card.setCardElevation(9);
+
+                    //set CardView Tag
+                    card.setTag(current);
+
+                    //set CardView to be clickable
+                    card.setClickable(true);
+
+                    ImageView image = new ImageView(getApplicationContext());
+                    image.setLayoutParams(params_text);
+                    image.setScaleType(ImageView.ScaleType.FIT_XY);
+                    AssetManager assetManager = getAssets();
+                    String file = "images/img"+current+".jpg";
+
+                    InputStream is = null;
+                    try {
+                        is = assetManager.open(file);
+                        Drawable d = Drawable.createFromStream(is, null);
+
+                        image.setImageDrawable(d);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    card.addView(image);
+
+                    // Initialize a new TextView to put in CardView
+                    TextView tv = new TextView(getApplicationContext());
+                    //tv.setLayoutParams(params);
+                    tv.setHeight(600);
+                    tv.setWidth(700);
+                    tv.setText(eateryNames[current - 1]);
+                    tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 30);
+                    tv.setTextColor(getResources().getColor(R.color.colorDark));
+
+                    // Put the TextView in CardView
+                    card.addView(tv);
+
+                    card.setOnClickListener(view -> {
+                        //@Override
+                        //public void OnClick(View view) {
+                            Intent I = new Intent(FavoritesSelection.this, CafeDisplay.class);
+                            I.putExtra("id", (int)view.getTag());
+                            startActivity(I);
+                        //}
+                    });
+
+                    // Finally, add the CardView in root layout
+
+                    HLL.addView(card);
+                }
+            }
+        }
+
+        /*
         for (i = 0; i < buttons.length; i++){
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
@@ -79,16 +203,16 @@ public class FavoritesSelection extends AppCompatActivity {
             buttons[i].setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
                     //if ((int)view.getId() < 21){
-                        Intent I = new Intent(FavoritesSelection.this, CafeDisplay.class);
-                        I.putExtra("id", (int)view.getId());
-                        startActivity(I);
-                        //startActivity(new Intent(FavoritesSelection.this, FavoritesSelection.class));
+                    Intent I = new Intent(FavoritesSelection.this, CafeDisplay.class);
+                    I.putExtra("id", (int)view.getId());
+                    startActivity(I);
+                    //startActivity(new Intent(FavoritesSelection.this, FavoritesSelection.class));
                     /*} else {
                         Intent I = new Intent(FavoritesSelection.this, DiningHallDisplayPage.class);
                         I.putExtra("id", (int)view.getId());
                         startActivity(I);
                         //startActivity(new Intent(FavoritesSelection.this, FavoritesSelection.class));
-                    }*/
+                    }
                 }
             });
 
@@ -107,13 +231,13 @@ public class FavoritesSelection extends AppCompatActivity {
                     OpenClosedBehavior.colorClosed((Button) b);
                 }
             }
-        }
+        }*/
     }
 
     @Override
     public void onRestart() {
         super.onRestart();
-
+/*
         SharedPreferences sp = this.getSharedPreferences("WOTM", Context.MODE_PRIVATE);
         String spText = sp.getString("Info", "");
         ArrayList<Integer> Fav = new ArrayList<Integer>();
@@ -126,17 +250,17 @@ public class FavoritesSelection extends AppCompatActivity {
 
         if (savedIds.length != 0)
             startActivity(new Intent(FavoritesSelection.this, FavoritesSelection.class));
-        finish();
+        finish();*/
     }
 
     public void MainMenu(View view) {
-        Intent I = new Intent(this,mainMenu.class);
+        Intent I = new Intent(this, mainMenu.class);
         I.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivityIfNeeded(I,0);
     }
 
     public void Search(View view) {
-        Intent I = new Intent(this,Search.class);
+        Intent I = new Intent(this, Search.class);
         startActivity(I);
     }
 
@@ -145,7 +269,7 @@ public class FavoritesSelection extends AppCompatActivity {
         startActivity(I);
         int id = 22;
         I.putExtra("id", id);*/
-        Intent I = new Intent(this,Mapview.class);
+        Intent I = new Intent(this, Mapview.class);
         Bundle k  = new Bundle();
         //final Bundle extras = getIntent().getExtras();
         int current = 60;
@@ -155,6 +279,128 @@ public class FavoritesSelection extends AppCompatActivity {
     }
 
     public void favorites(View view){
+
+    }
+
+    private void showFood(ArrayList<ArrayList <String>> food) {
+        expandableListView = findViewById(R.id.expandableListView);
+        expandableListView.setVisibility(View.VISIBLE);
+        expandableListDetail = ExpandableListDataPump.getFavoriteFood(food);
+        expandableListTitle = new ArrayList<>(expandableListDetail.keySet());
+        expandableListAdapter = new CustomExpandableListAdapter(this, expandableListTitle, expandableListDetail);
+        expandableListView.setAdapter(expandableListAdapter);
+
+        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                Log.d("SearchList", groupPosition + " " + childPosition);
+
+                String eatery = expandableListTitle.get(groupPosition);
+                String tempFood = expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition);
+
+                //gets just the food name
+                String food = "";
+                for (int i = 0; i < tempFood.length(); i++){
+                    if (!tempFood.substring(i, i + 1).equals("\t")){
+                        char c = tempFood.charAt(i);
+                        if (Character.isLetter(c)){
+                            food += c;
+                        }
+                    } else {
+                        break;
+                    }
+                }
+
+                return false;
+            }
+        });
+
+        expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                //Log.d("SearchList", parent + " " + v + " " + groupPosition + " " + id);
+
+                return false;
+
+            }
+        });
+
+        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+
+            @Override
+            public void onGroupExpand(int groupPosition) {
+
+            }
+        });
+
+        expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+
+            }
+        });
+    }
+
+    // GetFavorites
+    // preExecute: nothing
+    // doInBackground: get all accurate info on favorite dining halls and meals
+    // postExecute: set the entire favorites tab display
+    private class GetFavorites extends AsyncTask<String, Void, ArrayList <ArrayList <String>>> {
+
+        protected FavoritesSelection favoritesSelection;
+
+        public GetFavorites(FavoritesSelection favoritesSelectionRef) {
+            favoritesSelection = favoritesSelectionRef;
+        }
+
+        @Override
+        protected ArrayList <ArrayList <String>> doInBackground(String... food) {
+            // Gets info to display for favorite meals
+            ArrayList <ArrayList <String>> menu = new ArrayList <ArrayList <String>>();
+
+            Log.d("Favorites", food[0]);
+            String[] meals = food[0].split("-");
+            String[] temp;
+
+            //Log.d("Favorites", "Is db null?: " + (db == null));
+            //Log.d("Favorites", "in here111");
+            for (int i = 1; i < meals.length; i++){
+                temp = meals[i].split("_");
+                if (temp != null) {
+                    menu.add( db.getFavoriteFood(temp[0], temp[1]) );
+                    Log.d("Favorites", "FavoritesSelection: " + temp.length + "");
+                    Log.d("Favorites", "FavoritesSelection: " + "eatery: " + temp[0]);
+                    Log.d("Favorites", "FavoritesSelection: " + "  food: " + temp[1]);
+                }
+            }
+
+            return menu;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            /*if (search != null) {
+                search.showProgressBar();
+                search.canSearch = false;
+            }*/
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... progress) {
+            super.onProgressUpdate();
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList <ArrayList <String>> food) {
+            super.onPostExecute(food);
+            if (favoritesSelection != null) {
+                favoritesSelection.showFood(food);
+            }
+        }
 
     }
 }

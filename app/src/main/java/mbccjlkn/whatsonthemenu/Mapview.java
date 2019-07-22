@@ -160,7 +160,7 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
                 (marker.getPosition().latitude, marker.getPosition().longitude) ;
 
         DirectionsApiRequest direction = new DirectionsApiRequest(mGeoApiContext);
-        direction.alternatives(true);
+        direction.alternatives(false);
         direction.origin(new com.google.maps.model.LatLng(origin.getPosition().latitude, origin.getPosition().longitude));
 
         direction.destination(destination).setCallback(new PendingResult.Callback<DirectionsResult>(){
@@ -254,19 +254,6 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
     }
 
     public void favorites(View view){
-        SharedPreferences sp = this.getSharedPreferences("WOTM", Context.MODE_PRIVATE);
-        String spText = sp.getString("Info", "");
-        ArrayList<Integer> Fav = new ArrayList<Integer>();
-
-        String[] savedIds;
-        if (spText.equals(""))
-            savedIds = new String[0];
-        else
-            savedIds = spText.split("-");
-
-        if(savedIds.length == 0)
-            Toast.makeText(view.getContext(), "No Favorites To Display", Toast.LENGTH_LONG).show();
-        else
-            startActivity(new Intent(this, FavoritesSelection.class));
+        startActivity(new Intent(this, FavoritesSelection.class));
     }
 }

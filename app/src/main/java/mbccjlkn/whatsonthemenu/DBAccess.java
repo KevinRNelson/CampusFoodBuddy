@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -155,8 +156,8 @@ public class DBAccess {
     }
 
     // getFoodByTag()
-    // pre:
-    // post:
+    // pre: tag keyword must be given
+    // post: searches database for any food that might be similar to the tag keyword
     public ArrayList<ArrayList <String>> getFoodByTag(String keyword){
         ArrayList<ArrayList <String>> menu = new ArrayList<ArrayList <String>>();
 
@@ -204,6 +205,57 @@ public class DBAccess {
 
         menu.add(nameAndPrice);
         menu.add(location);
+
+        return menu;
+    }
+
+    // getFoodByTag()
+    // pre: tag keyword must be given
+    // post: searches database for any food that might be similar to the tag keyword
+    public ArrayList<String> getFavoriteFood(String eatery, String food){
+        ArrayList <String> menu = new ArrayList <String>();
+
+        String[] eateryNames = {
+                "Cruz N' Gourmet",
+                "Drunk Monkey",
+                "Raymond's Catering",
+                "Banana Joe's (Crown)",
+                "Bowls (Porter)",
+                "College 8 Cafe",
+                "Cowell Coffee Shop",
+                "Express Store (Quarry)",
+                "Global Village Cafe (Mchenry)",
+                "Iveta (Quarry)",
+                "Kresge Co-op",
+                "Oakes Cafe",
+                "Owl's Nest (Kresge)",
+                "Perk Coffee (J Baskin)",
+                "Perk Coffee (Earth and Marine)",
+                "Perk Coffee (Physical Sciences)",
+                "Perk Coffee (Terra Fresca)",
+                "Stevenson Coffee House",
+                "Terra Fresca (College 9/10)",
+                "Vivas (Merrill)",
+                "College 9/10",
+                "Cowell/Stevenson",
+                "Crown/Merrill",
+                "Porter/Kresge",
+                "Rachel Carson/Oakes" };
+
+        int id = Arrays.asList(eateryNames).indexOf(eatery) + 1;
+        String filters = "SELECT name, price, eateryID FROM Foods WHERE name LIKE '%" +food+ "%' AND eateryID LIKE '" +id+ "';";
+        Log.d("Favorites", filters);
+        Cursor cr = database.rawQuery(filters, null);
+
+        if (cr.moveToNext()) {
+            menu.add((eateryNames[Integer.parseInt(cr.getString(2)) - 1]));
+            menu.add((cr.getString(0) + "\t\t" + cr.getString(1)));
+            Log.d("Favorites", "DBAccess: " + menu.get(0));
+            Log.d("Favorites", "DBAccess: " + menu.get(1));
+
+        } else {
+            Log.d("Favorites", "DBAccess: " + "no " + food + " today");
+        }
 
         return menu;
     }
