@@ -14,29 +14,53 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ScrollView
+        <TextView
+            android:id="@+id/textView6"
             android:layout_width="match_parent"
-            android:layout_height="555dp">
+            android:layout_height="53dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:text="   Favorite Eateries"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="188dp">
 
             <LinearLayout
-                android:id="@+id/FavLL"
-                android:layout_width="300dp"
+                android:id="@+id/HorizontalLL"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
-                android:orientation="vertical">
+                android:orientation="horizontal"></LinearLayout>
+        </HorizontalScrollView>
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="119dp"
-                    android:layout_height="53dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="15dp"
-                    android:text="Favorites"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="24sp" />
-            </LinearLayout>
-        </ScrollView>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:text="  Favorite Menu Items"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp" />
+
+        <ExpandableListView
+            android:id="@+id/expandableListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="0.5dp"
+            android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/include3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/include3"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+
+        </ExpandableListView>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

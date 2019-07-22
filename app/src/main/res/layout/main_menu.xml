@@ -645,7 +645,8 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:foreground="?attr/selectableItemBackground"
-                        android:onClick="cafe">
+                        android:onClick="cafe"
+                        android:tag="21">
 
 
                         <ImageView
@@ -654,6 +655,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="30dp"
                             android:scaleType="fitXY"
+                            android:tag="21"
                             app:srcCompat="@drawable/perkc9c10" />
 
                         <TextView
