@@ -108,7 +108,7 @@ public class FavoritesSelection extends AppCompatActivity {
                     // Set the CardView layoutParams
                     LayoutParams params = new LayoutParams(
                             700,
-                            600
+                            900
                     );
 
                     LayoutParams params_text = new LayoutParams(
@@ -125,7 +125,7 @@ public class FavoritesSelection extends AppCompatActivity {
                     card.setContentPadding(15, 15, 15, 15);
 
                     // Set a background color for CardView
-                    card.setCardBackgroundColor(getResources().getColor(R.color.colorAccent));
+                    //card.setCardBackgroundColor(getResources().getColor(R.color.colorAccent));
 
                     // Set the CardView maximum elevation
                     card.setMaxCardElevation(15);
@@ -159,11 +159,11 @@ public class FavoritesSelection extends AppCompatActivity {
 
                     // Initialize a new TextView to put in CardView
                     TextView tv = new TextView(getApplicationContext());
-                    //tv.setLayoutParams(params);
-                    tv.setHeight(600);
-                    tv.setWidth(700);
+                    tv.setLayoutParams(params);
+                    tv.setGravity(10000);
                     tv.setText(eateryNames[current - 1]);
-                    tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 30);
+                    tv.setTextAlignment(20);
+                    tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
                     tv.setTextColor(getResources().getColor(R.color.colorDark));
 
                     // Put the TextView in CardView
@@ -311,6 +311,10 @@ public class FavoritesSelection extends AppCompatActivity {
                         break;
                     }
                 }
+
+                Intent I = new Intent(FavoritesSelection.this, Search.class);
+
+                startActivity(I);
 
                 return false;
             }

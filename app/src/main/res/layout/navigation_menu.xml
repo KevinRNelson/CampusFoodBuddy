@@ -41,7 +41,7 @@
                     android:layout_weight="1"
                     style="@style/naviBtn"
                     android:onClick="MainMenu"
-                    android:src="@android:drawable/ic_menu_compass" />
+                    android:src="@drawable/ic_home_black_24dp" />
 
                 <ImageButton
                     android:id="@+id/search_btn"
@@ -59,7 +59,7 @@
                     android:layout_weight="1"
                     style="@style/naviBtn"
                     android:onClick="allLocation"
-                    android:src="@android:drawable/ic_menu_add" />
+                    android:src="@drawable/ic_location_on_black_24dp" />
 
                 <ImageButton
                     android:id="@+id/favorite"
@@ -68,7 +68,7 @@
                     android:layout_weight="1"
                     style="@style/naviBtn"
                     android:onClick="favorites"
-                    android:src="@android:drawable/star_big_on" />
+                    android:src="@drawable/ic_favorite_black_24dp" />
             </LinearLayout>
 
         </com.google.android.material.bottomnavigation.BottomNavigationView>
