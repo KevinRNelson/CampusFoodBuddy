@@ -70,7 +70,7 @@ public class FavoritesSelection extends AppCompatActivity {
             buttons[i] = new Button(this);
             buttons[i].setText(eateryNames[(Fav.get(i) - 1)]);
             buttons[i].setTextSize(17);
-            buttons[i].setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+            buttons[i].setTextColor(getResources().getColor(R.color.colorYellow));
             buttons[i].setBackgroundResource(R.drawable.rounded_button);
             buttons[i].setId(Fav.get(i));
             buttons[i].setTag(savedIds[i]);

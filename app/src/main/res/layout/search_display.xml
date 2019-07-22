@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fffff0"
+    android:background="#86FFC107"
     tools:context=".Search">
 
     <include
@@ -13,7 +13,7 @@
 
     <Button
         android:id="@+id/searching"
-        style="@style/wotmButton"
+        android:textColor="#D8FFC107"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -78,7 +78,7 @@
                 android:layout_width="152dp"
                 android:layout_height="122dp"
                 android:layout_marginRight="25dip"
-                android:background="#FFFFFF"
+                android:background="#86F7D67C"
                 android:contentDescription="@string/burger"
                 android:foreground="@mipmap/ic_burger"
                 android:onClick="getFood"
@@ -92,7 +92,7 @@
                 android:layout_width="152dp"
                 android:layout_height="122dp"
                 android:layout_marginRight="25dip"
-                android:background="#FFFFFF"
+                android:background="#86F7D67C"
                 android:contentDescription="@string/chicken"
                 android:foreground="@mipmap/ic_chickenwing"
                 android:onClick="getFood"
@@ -106,7 +106,7 @@
                 android:layout_width="152dp"
                 android:layout_height="122dp"
                 android:layout_marginRight="25dip"
-                android:background="#FFFFFF"
+                android:background="#86F7D67C"
                 android:contentDescription="@string/vegetarian"
                 android:foreground="@mipmap/ic_vegetarian"
                 android:onClick="getFood"
@@ -120,7 +120,7 @@
                 android:layout_width="152dp"
                 android:layout_height="122dp"
                 android:layout_marginRight="25dip"
-                android:background="#FFFFFF"
+                android:background="#86F7D67C"
                 android:contentDescription="@string/vegan"
                 android:fitsSystemWindows="false"
                 android:foreground="@mipmap/ic_vegan"
@@ -134,7 +134,7 @@
                 style="@style/wotmButton"
                 android:layout_width="152dp"
                 android:layout_height="122dp"
-                android:background="#FFFFFF"
+                android:background="#86F7D67C"
                 android:contentDescription="@string/coffee"
                 android:foreground="@mipmap/ic_coffee"
                 android:onClick="getFood"
