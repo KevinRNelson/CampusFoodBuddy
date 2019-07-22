@@ -297,7 +297,7 @@ public class FavoritesSelection extends AppCompatActivity {
                 Log.d("SearchList", groupPosition + " " + childPosition);
 
                 String eatery = expandableListTitle.get(groupPosition);
-                String tempFood = expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition);
+                String tempFood = expandableListDetail.get(eatery).get(childPosition);
 
                 //gets just the food name
                 String food = "";

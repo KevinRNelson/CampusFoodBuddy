@@ -29,8 +29,10 @@ import java.util.List;
 
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
+
 public class CafeDisplay extends AppCompatActivity {
     private static final String key = "id";
+    public int current;
     DBAccess db = MainActivity.dba;
     FloatingActionButton map;
 
@@ -38,6 +40,33 @@ public class CafeDisplay extends AppCompatActivity {
     ExpandableListAdapter expandableListAdapter;
     List<String> expandableListTitle;
     HashMap<String, List<String>> expandableListDetail;
+
+    public static String[] eateryNames = {
+            "Cruz N' Gourmet",
+            "Drunk Monkey",
+            "Raymond's Catering",
+            "Banana Joe's (Crown)",
+            "Bowls (Porter)",
+            "College 8 Cafe",
+            "Cowell Coffee Shop",
+            "Express Store (Quarry)",
+            "Global Village Cafe (Mchenry)",
+            "Iveta (Quarry)",
+            "Kresge Co-op",
+            "Oakes Cafe",
+            "Owl's Nest (Kresge)",
+            "Perk Coffee (J Baskin)",
+            "Perk Coffee (Earth and Marine)",
+            "Perk Coffee (Physical Sciences)",
+            "Perk Coffee (Terra Fresca)",
+            "Stevenson Coffee House",
+            "Terra Fresca (College 9/10)",
+            "Vivas (Merrill)",
+            "College 9/10",
+            "Cowell/Stevenson",
+            "Crown/Merrill",
+            "Porter/Kresge",
+            "Rachel Carson/Oakes" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +79,7 @@ public class CafeDisplay extends AppCompatActivity {
 
 
         final Bundle extras = getIntent().getExtras();
-        int current = extras.getInt("id");
+        current = extras.getInt("id");
 
         // Update size of linear layouts
         LinearLayout layout = findViewById(R.id.linearLayout);
@@ -113,7 +142,7 @@ public class CafeDisplay extends AppCompatActivity {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 Log.d("SearchList", groupPosition + " " + childPosition);
-
+                //String eateies = "" + extras.getInt("id");
                 String eatery = expandableListTitle.get(groupPosition);
                 String tempFood = expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition);
 
@@ -122,7 +151,7 @@ public class CafeDisplay extends AppCompatActivity {
                 for (int i = 0; i < tempFood.length(); i++){
                     if (!tempFood.substring(i, i + 1).equals("\t")){
                         char c = tempFood.charAt(i);
-                        if (Character.isLetter(c)){
+                        if (Character.isLetter(c) || c == ' '){
                             food += c;
                         }
                     } else {
@@ -130,14 +159,14 @@ public class CafeDisplay extends AppCompatActivity {
                     }
                 }
 
-                SharedPreferences sp = CafeDisplay.this.getSharedPreferences("WOTM", Context.MODE_PRIVATE);
+                SharedPreferences sp = CafeDisplay.this.getSharedPreferences("WOT", Context.MODE_PRIVATE);
                 String text = sp.getString("Meals", "");
 
-                if (!text.contains("-" + eatery + "_" + food)){
-                    text += "-" + eatery + "_" + food;
+                if (!text.contains("-" + eateryNames[current - 1] + "_" + food)){
+                    text += "-" + eateryNames[current - 1] + "_" + food;
                     Toast.makeText(getApplicationContext(), "Favorited " + food, Toast.LENGTH_SHORT).show();
                 } else {
-                    text = text.replace("-" + eatery + "_" + food, "");
+                    text = text.replace("-" + eateryNames[current - 1] + "_" + food, "");
                     Toast.makeText(getApplicationContext(), "Unfavorited " + food, Toast.LENGTH_SHORT).show();
                 }
 

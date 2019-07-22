@@ -12,16 +12,26 @@ public class ExpandableListDataPump {
 
     static DBAccess db = MainActivity.dba;
 
-    public static HashMap<String, List<String>> getData( int i) {
+    public static HashMap<String, List<String>> getData( int id) {
         HashMap<String, List<String>> expandableListDetail = new HashMap<String, List<String>>();
 
-        ArrayList<String> categories = db.getCategories(i);
+        ArrayList<String> categories;
 
         String temp;
 
+        if(id < 21) {
+            categories = db.getCategories(id);
+        } else {
+            categories = new ArrayList<String>();
+            categories.add("Breakfast");
+            categories.add("lunch");
+            categories.add("Dinner");
+        }
+
         for(int j = 0; j < categories.size(); j++){
             temp = categories.get(j);
-            expandableListDetail.put(temp, db.viewFood(i, temp));
+            if(temp.equals("lunch")) temp = "Lunch";
+            expandableListDetail.put(categories.get(j), db.viewFood(id, temp));
         }
 
         return expandableListDetail;

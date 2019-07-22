@@ -113,12 +113,15 @@ public class MainActivity extends AppCompatActivity {
                             String temp = food.attr("src");
                             tag += temp.substring(temp.indexOf('/') + 1, temp.indexOf('.')) + " ";
                         } else {
-                            if (!name.equals("")) {
+                            /*if (!name.equals("")) {
                                 dba.addFood(eateryId, name, "", category, tag);
                                 Log.d("webscrape", j + ": " + tag);
                                 tag = "";
-                            }
+                            }*/
                             name = food.text();
+                            dba.addFood(eateryId, name, "", category, tag);
+                            Log.d("webscrape", j + ": " + tag);
+                            tag = "";
                             Log.d("webscrape", j + ": " + name);
                             Log.d("Foods", name);
                         }
@@ -127,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception ex) {
                     Log.d("Foods", ex + "");
                     ex.printStackTrace();
+                    eateryId --;
                 }
             }
             Log.d("Foods", "Done: downloading foods");
@@ -135,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
             i = 0;
             while (cr.moveToNext()) {
                 i++;
-                Log.d("Database", cr.getString(0) + " " + cr.getString(1) + " " + cr.getString(2) + " " + cr.getString(3));
+                //Log.d("Database", cr.getString(0) + " " + cr.getString(1) + " " + cr.getString(2) + " " + cr.getString(3));
             }
             Log.d("size", i + "");
 
