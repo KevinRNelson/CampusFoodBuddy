@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception ex) {
                     Log.d("Foods", ex + "");
                     ex.printStackTrace();
-                    eateryId --;
+                    //eateryId --;
                 }
             }
             Log.d("Foods", "Done: downloading foods");
