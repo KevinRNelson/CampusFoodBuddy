@@ -251,26 +251,23 @@ public class CafeDisplay extends AppCompatActivity {
         startActivity(I);
     }
 
+    //show all cafe/dinning hall locations
     public void allLocation(View view) {
-       /* Intent I = new Intent(this,Mapview.class);
-        startActivity(I);
-        int id = 22;
-        I.putExtra("id", id);*/
         Intent I = new Intent(this,Mapview.class);
         Bundle k  = new Bundle();
-        //final Bundle extras = getIntent().getExtras();
+        //set the key to 60 and save it for next Activities
         int current = 60;
         k.putInt(key, current );
         I.putExtras(k);
         startActivity(I);
     }
-
+    //on click to mapview
     public void map(View view){
         if(view.getId() == R.id.map){
-            //handle the click here and make whatever you want
             Intent intent = new Intent(this, Mapview.class);
             Bundle k  = new Bundle();
             final Bundle extras = getIntent().getExtras();
+            //get the key from current activity
             int current = extras.getInt("id");
             k.putInt(key, current );
             intent.putExtras(k);

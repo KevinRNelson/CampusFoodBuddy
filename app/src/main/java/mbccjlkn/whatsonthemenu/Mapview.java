@@ -1,10 +1,7 @@
 package mbccjlkn.whatsonthemenu;
 
 import android.Manifest;
-import android.app.ActionBar;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
@@ -17,22 +14,13 @@ import android.os.Looper;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
-import android.os.Build;
-import android.os.Bundle;
 
 
-import androidx.annotation.RequiresApi;
-import androidx.fragment.app.FragmentActivity;
-
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -42,8 +30,6 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.maps.DirectionsApiRequest;
 import com.google.maps.GeoApiContext;
 import com.google.maps.PendingResult;
@@ -54,27 +40,21 @@ import com.google.maps.model.DirectionsRoute;
 import java.util.ArrayList;
 import java.util.List;
 
-import java.net.URL;
-import java.net.URLConnection;
+
 
 
 public class Mapview extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
     private GoogleMap mMap;
-
     DBAccess db = MainActivity.dba;
     FusedLocationProviderClient mFusedLocationClient;
     LocationRequest mLocationRequest;
     GeoApiContext mGeoApiContext = null;
     Location user_location;
-    boolean checkOncompelte = false;
-    private URLConnection urlConnection;
-    int all_location = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.maps);
-        Log.d("test", "666666666666666");
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -86,27 +66,33 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
 
         }
     }
-
+    //Method to get the last user location
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void getLastKnownLocation() {
         Log.d("check","LastKnow Called");
+        //permission check
         if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             Log.d("check","permission denied");
             return;
         }
         Log.d("check"," get to task");
+        //when complete finding location
         mFusedLocationClient.getLastLocation().addOnCompleteListener(task ->  {
-            //@Override
-            //public void onComplete(@NonNull Task<Location> task) {
                 Log.d("check", "on Complete called");
                 if (task.isSuccessful()) {
+                    //get current location
                     user_location = task.getResult();
                     Log.d("check", "v: " + user_location.getLatitude());
                     Log.d("check", "v1: " +  user_location.getLongitude());
                     final Bundle extras = getIntent().getExtras();
+                    //get key
                     int current = extras.getInt("id");
-                    if(current == 60) {
-                        Log.d("check", "current is 60+++++");
+                    //if the user press location button on navigation bar
+                    int all_cafe = 60;
+                    //if the key is 60
+                    if(current == all_cafe) {
+                        Log.d("check", "current is 60");
+                        //add marker to all location
                         for(int i = 1; i <= 25; i++ ) {
                             String coordinate = db.getLocation(i);
                             ArrayList<String> list = db.viewEatery(i);
@@ -120,6 +106,7 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
                         }
                         LatLng center = new LatLng(36.991974,-122.059288);
                         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(center, 14));
+                    //else get the location and direction(from current location to destination) on the spectific cafe/dinning location
                     }else{
                         Log.d("check", "Current:" + current);
                         ArrayList<String> list = db.viewEatery(current);
@@ -128,7 +115,6 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
                         String[] split_string = coordinate.split("_", 0);
                         float v = Float.parseFloat(split_string[0]);
                         float v1 = Float.parseFloat(split_string[1]);
-                        //GeoPoint geoPoint = new GeoPoint(location.getLatitude())
 
 
                         double latitude = user_location.getLatitude();
@@ -145,13 +131,13 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
                     }
 
                 }else{
-                    Log.d("check", "fail ----------");
+                    Log.d("check", "fail");
                 }
            // }
         });
     }
 
-
+    //Method to calculate Direction data.
     public void Direction(Marker marker, Marker origin){
 
 
@@ -184,7 +170,7 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
 
     }
 
-
+    //draw polyline from origin to destination
     public void addDirectionPath(final DirectionsResult result) {
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
@@ -207,9 +193,9 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
+    //set up google map
     public void onMapReady(GoogleMap googleMap) {
         getLastKnownLocation();
-
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mMap.getUiSettings().setZoomControlsEnabled(true);
@@ -222,9 +208,11 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
 
             return;
         }
+        //show user location
         mMap.setMyLocationEnabled(true);
 
     }
+    //add location button
     @Override
     public boolean onMyLocationButtonClick() {
         Toast.makeText(this, "Your Location", Toast.LENGTH_SHORT).show();
@@ -232,6 +220,7 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
     }
 
     @Override
+    //show current location data
     public void onMyLocationClick(@NonNull Location location) {
         Toast.makeText(this, "Current location:\n" + location, Toast.LENGTH_LONG).show();
         Log.d("check", "Latitude" + location.getLatitude());
