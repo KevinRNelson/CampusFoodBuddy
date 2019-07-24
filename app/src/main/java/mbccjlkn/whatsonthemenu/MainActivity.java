@@ -17,6 +17,8 @@ import android.widget.ProgressBar;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import java.io.*;
+import java.io.FileWriter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,10 +66,12 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
+
             String DH[] = new String[5];
             String Name[] = new String[5];
             String name = "", tag = "";
             String filters = "SELECT * FROM Foods";
+
 
             Cursor cr = dba.database.rawQuery(filters, null);
             int i = 0, j = 1;
@@ -79,23 +83,23 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (eateryId) {
                     case 21: // College 9/10
-                        filename = "c9c10.html";
+                        filename = "html/c9c10.html";
                         Log.d("Foods", "9/10");
                         break;
                     case 22: // Cowell/Stevenson
-                        filename = "cowell.html";
+                        filename = "html/cowell.html";
                         Log.d("Foods", "Cowell/Stevenson");
                         break;
                     case 23: // Crown/Merill
-                        filename = "crown.html";
+                        filename = "html/crown.html";
                         Log.d("Foods", "Crown/Merill");
                         break;
                     case 24: // Porter/Kresge
-                        filename = "porter.html";
+                        filename = "html/porter.html";
                         Log.d("Foods", "Porter/Kresge");
                         break;
                     case 25: // College 8/Oaks
-                        filename = "oakes.html";
+                        filename = "html/oakes.html";
                         Log.d("Foods", "College 8/Oaks");
                         break;
                     default:
@@ -103,15 +107,16 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 try {
-                    Document document = Jsoup.parse(filename,null);
+                    InputStream input = getAssets().open(filename);
+                    Document document = Jsoup.parse(input,null,"");
                     String category = "";
 
-                    for (Element food : document.select("div.menusamprecipes,div.menusampmeals,img[src$=.gif]")) {
+                    for (Element food : document.select("div.menusamprecipes,div.shortmenurecipes,div.shortmenumeals,div.menusampmeals,img[src$=.gif]")) {
                         if (food.text().equals("Breakfast") || food.text().equals("Lunch") || food.text().equals("Dinner"))
                             category = food.text();
                         else if (food.text().equals("")) {  //finds the ingredients of the food
                             String temp = food.attr("src");
-                            tag += temp.substring(tag.indexOf('_')+7,tag.length()-4) + " ";
+                            tag += temp.substring(tag.indexOf('_')+7,temp.length()-4) + " ";
                         } else {
                             
                             name = food.text();
