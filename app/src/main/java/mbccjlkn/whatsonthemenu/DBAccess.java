@@ -1,28 +1,41 @@
 package mbccjlkn.whatsonthemenu;
 
-import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.content.ContentValues;
+import android.content.Context;
 import android.util.Log;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Arrays;
 import java.util.Date;
+import java.text.SimpleDateFormat;
+
 
 public class DBAccess {
+
     private SQLiteOpenHelper openHelper;
     public SQLiteDatabase database;
     private static DBAccess instance;
 
-
+    // DBAccess()
+    // pre: none
+    // post: opens connection to the database
     private DBAccess(Context context) {
         this.openHelper = new DBHelper2(context);
     }
 
+    // isOpen()
+    // pre: none
+    // post: returns true if the database has a steady connection
+    public boolean isOpen(){
+        return (this.openHelper != null);
+    }
 
+    // getInstance()
+    // pre: none
+    // post: returns a current DBAccess
     public static DBAccess getInstance(Context context) {
         if (instance == null) {
             instance = new DBAccess(context);
@@ -30,45 +43,69 @@ public class DBAccess {
         return instance;
     }
 
-
+    // open()
+    // pre: none
+    // post: establishes connection to the database
     public void open() {
         this.database = openHelper.getWritableDatabase();
     }
 
 
+    // close()
+    // pre: none
+    // post: closes connection to the database
     public void close() {
         if (database != null) {
             this.database.close();
         }
     }
 
-
+    // viewFood()
+    // pre: none
+    // post: returns all the food from the given eatery under the given category
     public ArrayList<String> viewFood(int location, String cat) {
+        // holds the menu items
         ArrayList<String> menu = new ArrayList<String>();
+
+        // sql statement to access database
         String filters = "SELECT * FROM Foods WHERE eateryID = " + location + " AND category = '" + cat + "';";
 
+        // cursor executes sql and holds what has been returned
         Cursor cr = database.rawQuery(filters, null);
 
-        int i = 0; // Variable to count where we
+        // while the cursor still has data
         while(cr.moveToNext()) {
+            // temporary String to store the name and price of the food
             String tempString = "";
+
+            // gets the name and price of each food
             for (int j = 2; j < 4; j++) {
                 tempString += cr.getString(j);
 
                 if (j == 2) tempString += "\t\t";
             }
+
+            // adds the food to menu
             menu.add(tempString);
-            i++;
         }
 
         return menu;
     }
 
+    // getCategories()
+    // pre: none
+    // post: returns all meal categories of the specified eateryID
     public ArrayList<String> getCategories(int location){
+        // holds all meal categories
         ArrayList<String> cats = new ArrayList<String>();
+
+        // sql statement to access database
         String filters = "SELECT DISTINCT category FROM Foods WHERE eateryID = "+location+";";
+
+        // cursor executes sql and holds what has been returned
         Cursor cr = database.rawQuery(filters, null);
 
+        // while the cursor still has data, add the categories to cats
         while(cr.moveToNext()) {
             cats.add(cr.getString(0));
         }
@@ -76,28 +113,30 @@ public class DBAccess {
         return cats;
     }
 
-    public ArrayList<String> viewEatery(int row) {
-        ArrayList<String> rowData = new ArrayList<String>();
-        String filters = "SELECT * FROM Eateries WHERE id = " + row + ";";
-        Cursor cr = database.rawQuery(filters, null);
+    // viewEatery()
+    // pre: none
+    // post: returns the specified eateries info from the eateries table
+    public ArrayList<String> viewEatery(int id) {
+        // holds the eateries data
+        ArrayList<String> eatery = new ArrayList<String>();
 
+        // sql statement to access database
+        String filters = "SELECT * FROM Eateries WHERE id = " + id + ";";
+
+        // cursor executes sql and holds what has been returned
+        Cursor cr = database.rawQuery(filters, null);
         cr.moveToNext();
 
+        // add eatery data into the eatery ArrayList
         for (int i = 1; i < 8; i++) {
-            rowData.add(cr.getString(i));
+            eatery.add(cr.getString(i));
         }
-        return rowData;
+        return eatery;
     }
 
-    public String getURL(int row) {
-        String url;
-        String filters = "SELECT URL FROM Eateries WHERE id = " + row + ";";
-        Cursor cr = database.rawQuery(filters, null);
-        cr.moveToNext();
-        url = cr.getString(0);
-        return url;
-    }
-
+    // isClosed()
+    // pre: none
+    // post: returns true id the eatery is closed
     public boolean isClosed(int eateryID) {
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
         String time = timeFormat.format(Calendar.getInstance().getTime());
@@ -115,35 +154,39 @@ public class DBAccess {
         return !cr.moveToNext();
     }
 
+    // getLocation()
+    // pre: none
+    // post: returns the specified eateries coordinates
     public String getLocation(int row) {
-        String location;
+        // sql statement to access database
         String filters = "SELECT location FROM Eateries WHERE id = " + row + ";";
+
+        // cursor executes sql and holds what has been returned
         Cursor cr = database.rawQuery(filters, null);
+
+        // gets the cursors data
         cr.moveToNext();
-        location = cr.getString(0);
-        return location;
+
+        // returns the corrdinates
+        return cr.getString(0);
     }
 
     // addFood()
     // pre:  database must be in swritable state
     // post: adds the specified food to the menu items database table
     public void addFood(int eateryId, String name, String price, String category, String tag){
+        // replaces any ' with nothing to not mess up the sql statement
         name = name.replace("'", "");
-        //String sql = "INSERT INTO Foods (eateryId, name, price, category) VALUES "
-        //        + "('" + eateryId + "',"
-        //        + " '" + name + "',"
-        //        + " '" + price + "',"
-        //        + " '" + category + "'";
-        //database.execSQL(sql);
 
+        // add each value to content values to insert into the database
         ContentValues values = new ContentValues();
-
         values.put("eateryID", eateryId);
         values.put("name", name);
         values.put("price", price);
         values.put("category", category);
         values.put("tag", tag);
 
+        // insert the values into the Foods table
         database.insert("Foods", null, values);
     }
 
@@ -159,8 +202,10 @@ public class DBAccess {
     // pre: tag keyword must be given
     // post: searches database for any food that might be similar to the tag keyword
     public ArrayList<ArrayList <String>> getFoodByTag(String keyword){
+        // holds the menu item
         ArrayList<ArrayList <String>> menu = new ArrayList<ArrayList <String>>();
 
+        // holds each eateries name
         String[] eateryNames = {
                 "Cruz N' Gourmet",
                 "Drunk Monkey",
@@ -188,16 +233,19 @@ public class DBAccess {
                 "Porter/Kresge",
                 "Rachel Carson/Oakes" };
 
-        Log.d("Search", keyword);
-
+        // sql statement to access database
         String filters = "SELECT name, price, eateryID FROM Foods WHERE name LIKE '%" +keyword+ "%' OR tag LIKE '%" +keyword.replace(" ","")+ "%' OR category LIKE '%" +keyword+ "%';";
 
+        // cursor executes sql and holds what has been returned
         Cursor cr = database.rawQuery(filters, null);
 
+        // holds the names and prices of each meal item
         ArrayList <String> nameAndPrice = new ArrayList <String>();
+
+        // holds the eatery names
         ArrayList <String> location = new ArrayList <String>();
 
-        int i = 0;
+        // add each menu items name and price and location into their respective ArrayLists
         while(cr.moveToNext()) {
             nameAndPrice.add(cr.getString(0) + "\t\t" + cr.getString(1));
             location.add(eateryNames[Integer.parseInt(cr.getString(2)) - 1]);
@@ -209,12 +257,14 @@ public class DBAccess {
         return menu;
     }
 
-    // getFoodByTag()
-    // pre: tag keyword must be given
-    // post: searches database for any food that might be similar to the tag keyword
+    // getFavoriteFood()
+    // pre: given an eatery and food
+    // post: checks to see if the eatery is currently serving that food
     public ArrayList<String> getFavoriteFood(String eatery, String food){
+        // holds the menu item
         ArrayList <String> menu = new ArrayList <String>();
 
+        // holds each eateries name
         String[] eateryNames = {
                 "Cruz N' Gourmet",
                 "Drunk Monkey",
@@ -242,18 +292,22 @@ public class DBAccess {
                 "Porter/Kresge",
                 "Rachel Carson/Oakes" };
 
+        // converts the given eatery name into its eateryID
         int id = Arrays.asList(eateryNames).indexOf(eatery) + 1;
+
+        // sql statement to access database
         String filters = "SELECT name, price, eateryID FROM Foods WHERE name LIKE '%" +food+ "%' AND eateryID LIKE '" +id+ "';";
-        Log.d("Favorites", filters);
+
+        // cursor executes sql and holds what has been returned
         Cursor cr = database.rawQuery(filters, null);
 
+        // if something was returned, i.e its available today, add it to menu
         if (cr.moveToNext()) {
+            // adds the eatery and meal name to menu
             menu.add((eateryNames[Integer.parseInt(cr.getString(2)) - 1]));
             menu.add((cr.getString(0) + "\t\t" + cr.getString(1)));
-            Log.d("Favorites", "DBAccess: " + menu.get(0));
-            Log.d("Favorites", "DBAccess: " + menu.get(1));
-
         } else {
+            // Logs saying there was no favorite food today
             Log.d("Favorites", "DBAccess: " + "no " + food + " today");
         }
 

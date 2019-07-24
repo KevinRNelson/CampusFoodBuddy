@@ -1,18 +1,12 @@
 package mbccjlkn.whatsonthemenu;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.util.Log;
-
 import android.view.View;
-import android.widget.Toast;
-import java.util.ArrayList;
 import android.widget.ProgressBar;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -21,51 +15,81 @@ import org.jsoup.nodes.Element;
 public class MainActivity extends AppCompatActivity {
 
     public static DBAccess dba;
-    boolean getMenus = true;
     private ProgressBar progressBar;
     GetDiningHallMenus getDiningHallMenus;
 
     @Override
+    // onCreate()
+    // pre: the app gets opened
+    // post: opens connection to the database and starts downloading the dining hall menus in the backgorund
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getDiningHallMenus = new GetDiningHallMenus(this);
-        progressBar = findViewById(R.id.progressBar2);
-
+        // opens connection to the database
         dba = DBAccess.getInstance(this);
         dba.open();
 
-        if (getMenus) {
-            dba.removeDiningHallFood();
-            getDiningHallMenus.execute();
-            getMenus = false;
-        }
+        // sets up a connection to the progress bar
+        progressBar = findViewById(R.id.progressBar2);
+        // sets up a new background thread to get dining hall menus
+        getDiningHallMenus = new GetDiningHallMenus(this);
+
+        startActivity(new Intent(MainActivity.this, mainMenu.class));
+        // removes all dining hall food and downloads current days dining hall foods in the background
+        //dba.removeDiningHallFood();
+        //getDiningHallMenus.execute();
     }
 
+    // showProgressBar()
+    // pre: called on the preExecute of getDiningHallMenus background thread
+    // post: sets the progress bar to be visible
     private void showProgressBar() {
         progressBar.setVisibility(View.VISIBLE);
     }
 
+    // dismissProgressBar()
+    // pre: called on the postExecute of getDiningHallMenus background thread
+    // post: sets the progress bar to be invisible
     private void dismissProgressBar() {
         progressBar.setVisibility(View.INVISIBLE);
     }
 
-    // getDiningHallMenus()
-    // pre: the database has to be opened
-    // post: updates the foods table in the database with current menu items
     private class GetDiningHallMenus extends AsyncTask<Void, Void, Void> {
 
         protected MainActivity mainActivity;
 
+        // GetDiningHallMenus()
+        // pre: given a reference to the MainActivity
+        // post: sets up a connection with the MainActivity
         public GetDiningHallMenus(MainActivity mainActivityRef) {
             mainActivity = mainActivityRef;
         }
 
         @Override
+        // onPreExecute()
+        // pre: called before doInBackground is called
+        // post: sets the progress bar to be visible
+        protected void onPreExecute() {
+            super.onPreExecute();
+            if (mainActivity != null) {
+                mainActivity.showProgressBar();
+            }
+        }
+
+        @Override
+        // onProgressUpdate()
+        // pre: called while doInBackground is being executed
+        // post: shows progress in the progress bar
+        protected void onProgressUpdate(Void... progress) {
+            super.onProgressUpdate();
+        }
+
+        @Override
+        // doInBackground()
+        // pre: called when the thread is executed
+        // post: downloads all dining hall menus, and stores required info in the database
         protected Void doInBackground(Void... voids) {
-            String DH[] = new String[5];
-            String Name[] = new String[5];
             String name = "", tag = "";
             String filters = "SELECT * FROM Foods";
 
@@ -150,19 +174,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            if (mainActivity != null) {
-                mainActivity.showProgressBar();
-            }
-        }
-
-        @Override
-        protected void onProgressUpdate(Void... progress) {
-            super.onProgressUpdate();
-        }
-
-        @Override
+        // onPostExecute()
+        // pre: called after doInBackground is executed
+        // post: sets the progress bar to be invisible
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             if (mainActivity != null) {
