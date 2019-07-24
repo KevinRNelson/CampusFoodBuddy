@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("Foods", "9/10");
                         break;
                     case 22: // Cowell/Stevenson
-                        url = "https://nutrition.sa.ucsc.edu/shortmenu.aspx?sName=UC+Santa+Cruz+Dining&locationNum=05&locationName=Cowell+Stevenson+Dining+Hall&naFlag=1";
+                        url = "https://nutrition.sa.ucsc.edu/menuSamp.asp?locationNum=05&locationName=Cowell+Stevenson+Dining+Hall&naFlag=";
                         Log.d("Foods", "Cowell/Stevenson");
                         break;
                     case 23: // Crown/Merill
