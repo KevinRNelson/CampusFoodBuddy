@@ -98,10 +98,6 @@ public class FavoritesSelection extends AppCompatActivity {
             for (int i = 0; i < savedIds.length; i++)
                 Fav.add(Integer.parseInt(savedIds[i]));
 
-            // stores the eateryIDs of each of the users favorited eateries
-            for (int i = 0; i < savedIds.length; i++)
-                Fav.add(Integer.parseInt(savedIds[i]));
-
             // cycles through the favorited Eatery Ids and sets the card view for that Eatery
             for (int i = 0; i < Fav.size(); i++) {
                 // the current eateryId
