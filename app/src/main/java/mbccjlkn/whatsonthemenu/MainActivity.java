@@ -11,6 +11,8 @@ import android.widget.ProgressBar;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.Connection;
+import org.jsoup.Connection.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -98,9 +100,9 @@ public class MainActivity extends AppCompatActivity {
             while (cr.moveToNext()) i++;
             Log.d("size", i + "");
             cr.close();
+            int connection_tries = 2;
             for (int eateryId = 21; eateryId <= 25; eateryId++) {
                 String url = "";
-
                 switch (eateryId) {
                     case 21: // College 9/10
                         url = "https://nutrition.sa.ucsc.edu/menuSamp.asp?locationNum=40&locationName=Colleges+Nine+%26+Ten+Dining+Hall&naFlag=";
@@ -111,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("Foods", "Cowell/Stevenson");
                         break;
                     case 23: // Crown/Merill
-                        url = "https://nutrition.sa.ucsc.edu/menuSamp.asp?locationNum=20&locationName=merrill+crown+Dining+Hall&sName=&naFlag=";
+                        url = "https://nutrition.sa.ucsc.edu/menuSamp.asp?locationNum=20&locationName=merrill+crown+Dining+Hall&naFlag=";
                         Log.d("Foods", "Crown/Merill");
                         break;
                     case 24: // Porter/Kresge
@@ -127,31 +129,42 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 try {
+                    //Connection connection = Jsoup.connect(url).timeout(18000);
+                    //Connection.Response resp = connection.execute();
                     Document document = Jsoup.connect(url).get();
-                    String category = "";
+                    //Document document;
+                    //if (resp.statusCode() == 200) {
+                        //document = connection.get();
 
-                    //seperates the scraped document and stores it in the database
-                    for (Element food : document.select("div.menusamprecipes,div.menusampmeals,img[src$=.gif]")) {
-                        if (food.text().equals("Breakfast") || food.text().equals("Lunch") || food.text().equals("Dinner"))
-                            category = food.text();
-                        else if (food.text().equals("")) {  //finds the ingredients of the food
-                            String temp = food.attr("src");
-                            tag += temp.substring(temp.indexOf('/') + 1, temp.indexOf('.')) + " ";
-                        } else {
-                            name = food.text();
-                            dba.addFood(eateryId, name, "", category, tag);
-                            Log.d("webscrape", j + ": " + tag);
-                            tag = "";
-                            Log.d("webscrape", j + ": " + name);
-                            Log.d("Foods", name);
+
+                        String category = "";
+
+                        //seperates the scraped document and stores it in the database
+                        for (Element food : document.select("div.menusamprecipes,div.menusampmeals,img[src$=.gif]")) {
+                            if (food.text().equals("Breakfast") || food.text().equals("Lunch") || food.text().equals("Dinner"))
+                                category = food.text();
+                            else if (food.text().equals("")) {  //finds the ingredients of the food
+                                String temp = food.attr("src");
+                                tag += temp.substring(temp.indexOf('/') + 1, temp.indexOf('.')) + " ";
+                            } else {
+                                name = food.text();
+                                dba.addFood(eateryId, name, "", category, tag);
+                                Log.d("webscrape", j + ": " + tag);
+                                tag = "";
+                                Log.d("webscrape", j + ": " + name);
+                                Log.d("Foods", name);
+                            }
+                            j++;
                         }
-                        j++;
-                    }
+                    //}
                 } catch (Exception ex) {
                     Log.d("Foods", ex + "");
                     ex.printStackTrace();
                     //used when there is an exception, and we try to scrape the url again
-                    //eateryId --;
+                    if(connection_tries > 0) {
+                        eateryId--;
+                        connection_tries--;
+                    } else connection_tries = 3;
                 }
             }
             Log.d("Foods", "Done: downloading foods");
