@@ -35,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
         // sets up a new background thread to get dining hall menus
         getDiningHallMenus = new GetDiningHallMenus(this);
 
-        startActivity(new Intent(MainActivity.this, mainMenu.class));
+        //startActivity(new Intent(MainActivity.this, mainMenu.class));
         // removes all dining hall food and downloads current days dining hall foods in the background
-        //dba.removeDiningHallFood();
-        //getDiningHallMenus.execute();
+        dba.removeDiningHallFood();
+        getDiningHallMenus.execute();
     }
 
     // showProgressBar()
@@ -57,12 +57,12 @@ public class MainActivity extends AppCompatActivity {
 
     private class GetDiningHallMenus extends AsyncTask<Void, Void, Void> {
 
-        protected MainActivity mainActivity;
+        private MainActivity mainActivity;
 
         // GetDiningHallMenus()
         // pre: given a reference to the MainActivity
         // post: sets up a connection with the MainActivity
-        public GetDiningHallMenus(MainActivity mainActivityRef) {
+        private GetDiningHallMenus(MainActivity mainActivityRef) {
             mainActivity = mainActivityRef;
         }
 
@@ -90,14 +90,14 @@ public class MainActivity extends AppCompatActivity {
         // pre: called when the thread is executed
         // post: downloads all dining hall menus, and stores required info in the database
         protected Void doInBackground(Void... voids) {
-            String name = "", tag = "";
+            String name , tag = "" ;
             String filters = "SELECT * FROM Foods";
 
             Cursor cr = dba.database.rawQuery(filters, null);
             int i = 0, j = 1;
             while (cr.moveToNext()) i++;
             Log.d("size", i + "");
-
+            cr.close();
             for (int eateryId = 21; eateryId <= 25; eateryId++) {
                 String url = "";
 
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("Foods", "9/10");
                         break;
                     case 22: // Cowell/Stevenson
-                        url = "https://nutrition.sa.ucsc.edu/menuSamp.asp?locationNum=05&locationName=Cowell+Stevenson+Dining+Hall&naFlag=";
+                        url = "https://nutrition.sa.ucsc.edu/shortmenu.aspx?sName=UC+Santa+Cruz+Dining&locationNum=05&locationName=Cowell+Stevenson+Dining+Hall&naFlag=1";
                         Log.d("Foods", "Cowell/Stevenson");
                         break;
                     case 23: // Crown/Merill
@@ -130,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
                     Document document = Jsoup.connect(url).get();
                     String category = "";
 
+                    //seperates the scraped document and stores it in the database
                     for (Element food : document.select("div.menusamprecipes,div.menusampmeals,img[src$=.gif]")) {
                         if (food.text().equals("Breakfast") || food.text().equals("Lunch") || food.text().equals("Dinner"))
                             category = food.text();
@@ -137,11 +138,6 @@ public class MainActivity extends AppCompatActivity {
                             String temp = food.attr("src");
                             tag += temp.substring(temp.indexOf('/') + 1, temp.indexOf('.')) + " ";
                         } else {
-                            /*if (!name.equals("")) {
-                                dba.addFood(eateryId, name, "", category, tag);
-                                Log.d("webscrape", j + ": " + tag);
-                                tag = "";
-                            }*/
                             name = food.text();
                             dba.addFood(eateryId, name, "", category, tag);
                             Log.d("webscrape", j + ": " + tag);
@@ -154,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception ex) {
                     Log.d("Foods", ex + "");
                     ex.printStackTrace();
+                    //used when there is an exception, and we try to scrape the url again
                     //eateryId --;
                 }
             }
@@ -166,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
                 //Log.d("Database", cr.getString(0) + " " + cr.getString(1) + " " + cr.getString(2) + " " + cr.getString(3));
             }
             Log.d("size", i + "");
+            cr.close();
 
             Intent I = new Intent(MainActivity.this, mainMenu.class);
             startActivity(I);

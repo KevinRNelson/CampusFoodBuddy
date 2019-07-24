@@ -27,7 +27,7 @@ public class mainMenu extends AppCompatActivity{
         // Do nothing
     }
 
-    // onCreate()
+    // Search()
     // pre: onClick for the Navigation Bars Search Tab button
     // post: takes the user to the Search Tab
     public void Search(View view) {

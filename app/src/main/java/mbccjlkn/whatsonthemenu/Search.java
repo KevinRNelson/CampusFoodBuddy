@@ -125,11 +125,10 @@ public class Search extends AppCompatActivity {
     // post: does nothing because we are already at the MainMenu
     public void MainMenu(View view) {
         Intent I = new Intent(this, mainMenu.class);
-        I.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(I);
     }
 
-    // onCreate()
+    // Search()
     // pre: onClick for the Navigation Bars Search Tab button
     // post: does nothing, because the user is already at the Search Activity
     public void Search(View view) {

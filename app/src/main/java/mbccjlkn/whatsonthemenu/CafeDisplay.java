@@ -98,7 +98,7 @@ public class CafeDisplay extends AppCompatActivity {
         AssetManager assetManager = getAssets();
         String file = "images/img"+current+".jpg";
 
-        InputStream is = null;
+        InputStream is;
         try {
             is = assetManager.open(file);
             Drawable d = Drawable.createFromStream(is, null);
@@ -117,7 +117,7 @@ public class CafeDisplay extends AppCompatActivity {
 
         // sets the favorite Floating Action Button
         FloatingActionButton fab = findViewById(R.id.fab);
-        ArrayList<Integer> Fav = new ArrayList<Integer>();
+        ArrayList<Integer> Fav = new ArrayList<>();
 
         // checks to see if the current eatery is one of the users favorite,
         // and if so colors the star in or leaves it blank
@@ -131,7 +131,7 @@ public class CafeDisplay extends AppCompatActivity {
             for (int i = 0; i < savedIds.length; i++)
                 Fav.add(Integer.parseInt(savedIds[i]));
 
-        if (Fav.contains((Integer) getIntent().getExtras().getInt("id"))) {
+        if (Fav.contains( getIntent().getExtras().getInt("id"))) {
             fab.setImageResource(R.drawable.ic_star_favorited);
         } else {
             fab.setImageResource(R.drawable.ic_star_unfavorited);
@@ -287,7 +287,7 @@ public class CafeDisplay extends AppCompatActivity {
         startActivityIfNeeded(I,0);
     }
 
-    // onCreate()
+    // Search()
     // pre: onClick for the Navigation Bars Search Tab button
     // post: takes the user to the Search Tab
     public void Search(View view) {
@@ -342,7 +342,7 @@ public class CafeDisplay extends AppCompatActivity {
         String spText = sp.getString("Info", "");
 
         // stores users favorites eateries ids
-        ArrayList<Integer> Fav = new ArrayList<Integer>();
+        ArrayList<Integer> Fav = new ArrayList<>();
 
         // if there are any saved id split them by one id per index, nothing otherwise
         String[] savedIds;
@@ -376,18 +376,18 @@ public class CafeDisplay extends AppCompatActivity {
 
                 for (int i = 0; i < Fav.size(); i++) {
                     if (Fav.get(i) > (Integer) getIntent().getExtras().getInt("id")) {
-                        Fav.add(i, (Integer) getIntent().getExtras().getInt("id"));
+                        Fav.add(i, getIntent().getExtras().getInt("id"));
                         placed = true;
                         break;
                     }
                 }
 
                 if (!placed) {
-                    Fav.add((Integer) getIntent().getExtras().getInt("id"));
+                    Fav.add( getIntent().getExtras().getInt("id"));
                 }
 
                 fab.setImageResource(R.drawable.ic_star_favorited);
-                Toast.makeText(getApplicationContext(), "Favorited: " + FavoritesSelection.eateryNames[((Integer) getIntent().getExtras().getInt("id")) - 1], Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Favorited: " + FavoritesSelection.eateryNames[( getIntent().getExtras().getInt("id")) - 1], Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -406,7 +406,7 @@ public class CafeDisplay extends AppCompatActivity {
     // setListViewHeight()
     // pre:
     // post:
-    private void setListViewHeight(ExpandableListView listView, int group) { ExpandableListAdapter listAdapter = (ExpandableListAdapter) listView.getExpandableListAdapter();
+    private void setListViewHeight(ExpandableListView listView, int group) { ExpandableListAdapter listAdapter = listView.getExpandableListAdapter();
         int totalHeight = 0;
         int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(),
                 View.MeasureSpec.EXACTLY);

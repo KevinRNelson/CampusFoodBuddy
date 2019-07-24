@@ -94,7 +94,7 @@ public class FavoritesSelection extends AppCompatActivity {
         String[] savedIds = spText.split("-");
         if (savedIds.length > 0 && savedIds[0] != ""){
             // stores the eateryIDs of each of the users favorited eateries
-            ArrayList<Integer> Fav = new ArrayList<Integer>();
+            ArrayList<Integer> Fav = new ArrayList<>();
             for (int i = 0; i < savedIds.length; i++)
                 Fav.add(Integer.parseInt(savedIds[i]));
 
@@ -206,7 +206,6 @@ public class FavoritesSelection extends AppCompatActivity {
 
         SharedPreferences sp = this.getSharedPreferences("WOTM", Context.MODE_PRIVATE);
         String spText = sp.getString("Info", "");
-        ArrayList<Integer> Fav = new ArrayList<Integer>();
 
         String[] savedIds;
         if (spText.equals(""))
@@ -228,7 +227,7 @@ public class FavoritesSelection extends AppCompatActivity {
         startActivityIfNeeded(I,0);
     }
 
-    // onCreate()
+    // Search()
     // pre: onClick for the Navigation Bars Search Tab button
     // post: takes the user to the Search Tab
     public void Search(View view) {
@@ -401,7 +400,7 @@ public class FavoritesSelection extends AppCompatActivity {
         // post: gets the users favorited meals that are available today and saves it to be displayed on the pagr
         protected ArrayList <ArrayList <String>> doInBackground(String... food) {
             // Gets info to display for favorite meals
-            ArrayList <ArrayList <String>> menu = new ArrayList <ArrayList <String>>();
+            ArrayList <ArrayList <String>> menu = new ArrayList <>();
 
             // gets each meal from the given Shared Preference string
             String[] meals = food[0].split("-");

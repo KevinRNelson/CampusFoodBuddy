@@ -1,11 +1,9 @@
 package mbccjlkn.whatsonthemenu;
 
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 
 public class ExpandableListDataPump {
@@ -15,9 +13,9 @@ public class ExpandableListDataPump {
     // getData()
     // pre: called when the cafeDisplay Activity is opened
     // post: puts correct meal display info into the expandableViewList
-    public static HashMap<String, List<String>> getData( int id) {
+    static HashMap<String, List<String>> getData( int id) {
         // holds the expandableViewLists data
-        HashMap<String, List<String>> expandableListDetail = new HashMap<String, List<String>>();
+        HashMap<String, List<String>> expandableListDetail = new HashMap<>();
 
         // holds each of the eateries meal categories
         ArrayList<String> categories;
@@ -28,7 +26,7 @@ public class ExpandableListDataPump {
             categories = db.getCategories(id);
         } else {
             // if it is a Dining Hall the categories are Breakfast, lunch, Dinner
-            categories = new ArrayList<String>();
+            categories = new ArrayList<>();
             categories.add("Breakfast");
             categories.add("lunch");
             categories.add("Dinner");
@@ -51,7 +49,7 @@ public class ExpandableListDataPump {
     // post: puts correct meal display info into the expandableViewList
     public static HashMap<String, List<String>> getFood(ArrayList<ArrayList<String>> food) {
         // holds the expandableViewLists data
-        HashMap <String, List<String>> expandableListDetail = new HashMap<String, List<String>>();
+        HashMap <String, List<String>> expandableListDetail = new HashMap<>();
 
         // stores each eateryName, indexed by eateryID offset by -1
         String[] eateryNames = {
@@ -82,9 +80,9 @@ public class ExpandableListDataPump {
                 "Rachel Carson/Oakes" };
 
         // adds an index corresponding to one of the 25 eateries
-        ArrayList <ArrayList <String>> eateries = new ArrayList <ArrayList <String>>();
+        ArrayList <ArrayList <String>> eateries = new ArrayList <>();
         for (int i = 0; i < 25; i++){
-            eateries.add(new ArrayList <String>());
+            eateries.add(new ArrayList <>());
         }
 
         // stores into each eatery meals that applied to the users given tag when they searched
@@ -106,7 +104,7 @@ public class ExpandableListDataPump {
     // pre: called when the FavoritesSelection Activity is opened
     // post: puts correct meal display info into the expandableViewList
     public static HashMap<String, List<String>> getFavoriteFood(ArrayList<ArrayList<String>> meals) {
-        HashMap <String, List<String>> expandableListDetail = new HashMap<String, List<String>>();
+        HashMap <String, List<String>> expandableListDetail = new HashMap<>();
 
         // stores each eateryName, indexed by eateryID offset by -1
         String[] eateryNames = {
@@ -137,9 +135,9 @@ public class ExpandableListDataPump {
                 "Rachel Carson/Oakes" };
 
         // adds an index corresponding to one of the 25 eateries
-        ArrayList <ArrayList <String>> eateries = new ArrayList <ArrayList <String>>();
+        ArrayList <ArrayList <String>> eateries = new ArrayList <>();
         for (int i = 0; i < 25; i++){
-            eateries.add(new ArrayList <String>());
+            eateries.add(new ArrayList <>());
         }
 
         // store each favorited meal into its corresponding eatery

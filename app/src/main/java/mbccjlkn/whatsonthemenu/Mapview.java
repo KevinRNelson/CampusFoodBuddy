@@ -45,6 +45,7 @@ import java.util.List;
 
 public class Mapview extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
     private GoogleMap mMap;
+    // Connection to the database
     DBAccess db = MainActivity.dba;
     FusedLocationProviderClient mFusedLocationClient;
     LocationRequest mLocationRequest;
@@ -58,7 +59,8 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+        SupportMapFragment mapFragment;
+        mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         if(mGeoApiContext == null) {
@@ -163,7 +165,6 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
            @Override
             public void onFailure(Throwable e) {
                Log.e("Directions", "calculateDirections: Failed to get directions: " + e.getMessage() );
-
             }
         });
 
@@ -220,28 +221,39 @@ public class Mapview extends FragmentActivity implements OnMapReadyCallback, Goo
     }
 
     @Override
-    //show current location data
+    //show current location data, use for tests
     public void onMyLocationClick(@NonNull Location location) {
         Toast.makeText(this, "Current location:\n" + location, Toast.LENGTH_LONG).show();
         Log.d("check", "Latitude" + location.getLatitude());
         Log.d("check", "Longitude" +  location.getLongitude());
     }
 
+    // MainMenu()
+    // pre: onClick for the Navigation Bars Main Menu Tab button
+    // post: takes the user to the MainMenu Tab
     public void MainMenu(View view) {
         Intent I = new Intent(this,mainMenu.class);
-        I.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivityIfNeeded(I,0);
     }
 
+    // Search()
+    // pre: onClick for the Navigation Bars Search Tab button
+    // post: takes the user to the Search Tab
     public void Search(View view) {
         Intent I = new Intent(this,Search.class);
         startActivity(I);
     }
 
+    // allLocation()
+    // pre: onClick for the Navigation Bars Map Tab
+    // post: does nothing because we are already at the Map
     public void allLocation(View view) {
 
     }
 
+    // favorites()
+    // pre: onClick for the Navigation Bars Favorites Tab button
+    // post: takes the user to the Favorites Tab
     public void favorites(View view){
         startActivity(new Intent(this, FavoritesSelection.class));
     }

@@ -50,14 +50,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DiningHallSelection" />
-        <activity android:name=".CafeSelection" />
-        <activity android:name=".FoodTruckSelection" />
         <activity android:name=".CafeDisplay" />
         <activity android:name=".FavoritesSelection" />
-        <activity android:name=".DiningHallDisplayPage" />
         <activity android:name=".Search" />
-        <activity android:name=".Preference" />
         <activity android:name=".mainMenu" />
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"

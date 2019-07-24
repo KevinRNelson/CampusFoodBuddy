@@ -65,7 +65,7 @@ public class DBAccess {
     // post: returns all the food from the given eatery under the given category
     public ArrayList<String> viewFood(int location, String cat) {
         // holds the menu items
-        ArrayList<String> menu = new ArrayList<String>();
+        ArrayList<String> menu = new ArrayList<>();
 
         // sql statement to access database
         String filters = "SELECT * FROM Foods WHERE eateryID = " + location + " AND category = '" + cat + "';";
@@ -88,6 +88,7 @@ public class DBAccess {
             // adds the food to menu
             menu.add(tempString);
         }
+        cr.close();
 
         return menu;
     }
@@ -97,7 +98,7 @@ public class DBAccess {
     // post: returns all meal categories of the specified eateryID
     public ArrayList<String> getCategories(int location){
         // holds all meal categories
-        ArrayList<String> cats = new ArrayList<String>();
+        ArrayList<String> cats = new ArrayList<>();
 
         // sql statement to access database
         String filters = "SELECT DISTINCT category FROM Foods WHERE eateryID = "+location+";";
@@ -109,7 +110,7 @@ public class DBAccess {
         while(cr.moveToNext()) {
             cats.add(cr.getString(0));
         }
-
+        cr.close();
         return cats;
     }
 
@@ -118,7 +119,7 @@ public class DBAccess {
     // post: returns the specified eateries info from the eateries table
     public ArrayList<String> viewEatery(int id) {
         // holds the eateries data
-        ArrayList<String> eatery = new ArrayList<String>();
+        ArrayList<String> eatery = new ArrayList<>();
 
         // sql statement to access database
         String filters = "SELECT * FROM Eateries WHERE id = " + id + ";";
@@ -131,6 +132,7 @@ public class DBAccess {
         for (int i = 1; i < 8; i++) {
             eatery.add(cr.getString(i));
         }
+        cr.close();
         return eatery;
     }
 
@@ -138,10 +140,12 @@ public class DBAccess {
     // pre: none
     // post: returns true id the eatery is closed
     public boolean isClosed(int eateryID) {
-        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat timeFormat;
+        timeFormat = new SimpleDateFormat("HH:mm");
         String time = timeFormat.format(Calendar.getInstance().getTime());
 
-        SimpleDateFormat dayFormat = new SimpleDateFormat("E"); // the day of the week abbreviated
+        SimpleDateFormat dayFormat; // the day of the week abbreviated
+        dayFormat = new SimpleDateFormat("E");
         String day = dayFormat.format(new Date());
 
         String filters = "SELECT 1 FROM Hours WHERE eateryID = " + eateryID +
@@ -203,7 +207,7 @@ public class DBAccess {
     // post: searches database for any food that might be similar to the tag keyword
     public ArrayList<ArrayList <String>> getFoodByTag(String keyword){
         // holds the menu item
-        ArrayList<ArrayList <String>> menu = new ArrayList<ArrayList <String>>();
+        ArrayList<ArrayList <String>> menu = new ArrayList<>();
 
         // holds each eateries name
         String[] eateryNames = {
@@ -240,10 +244,10 @@ public class DBAccess {
         Cursor cr = database.rawQuery(filters, null);
 
         // holds the names and prices of each meal item
-        ArrayList <String> nameAndPrice = new ArrayList <String>();
+        ArrayList <String> nameAndPrice = new ArrayList <>();
 
         // holds the eatery names
-        ArrayList <String> location = new ArrayList <String>();
+        ArrayList <String> location = new ArrayList <>();
 
         // add each menu items name and price and location into their respective ArrayLists
         while(cr.moveToNext()) {
@@ -253,7 +257,7 @@ public class DBAccess {
 
         menu.add(nameAndPrice);
         menu.add(location);
-
+        cr.close();
         return menu;
     }
 
@@ -262,7 +266,7 @@ public class DBAccess {
     // post: checks to see if the eatery is currently serving that food
     public ArrayList<String> getFavoriteFood(String eatery, String food){
         // holds the menu item
-        ArrayList <String> menu = new ArrayList <String>();
+        ArrayList <String> menu = new ArrayList <>();
 
         // holds each eateries name
         String[] eateryNames = {
@@ -310,7 +314,7 @@ public class DBAccess {
             // Logs saying there was no favorite food today
             Log.d("Favorites", "DBAccess: " + "no " + food + " today");
         }
-
+        cr.close();
         return menu;
     }
 }
