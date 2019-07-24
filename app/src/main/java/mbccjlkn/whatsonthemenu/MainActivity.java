@@ -75,27 +75,27 @@ public class MainActivity extends AppCompatActivity {
             Log.d("size", i + "");
 
             for (int eateryId = 21; eateryId <= 25; eateryId++) {
-                String url = "";
+                String filename = "";
 
                 switch (eateryId) {
                     case 21: // College 9/10
-                        url = "https://nutrition.sa.ucsc.edu/menuSamp.asp?locationNum=40&locationName=Colleges+Nine+%26+Ten+Dining+Hall&naFlag=";
+                        filename = "c9c10.html";
                         Log.d("Foods", "9/10");
                         break;
                     case 22: // Cowell/Stevenson
-                        url = "https://nutrition.sa.ucsc.edu/menuSamp.asp?locationNum=05&locationName=Cowell+Stevenson+Dining+Hall&naFlag=";
+                        filename = "cowell.html";
                         Log.d("Foods", "Cowell/Stevenson");
                         break;
                     case 23: // Crown/Merill
-                        url = "https://nutrition.sa.ucsc.edu/menuSamp.asp?locationNum=20&locationName=merrill+crown+Dining+Hall&sName=&naFlag=";
+                        filename = "crown.html";
                         Log.d("Foods", "Crown/Merill");
                         break;
                     case 24: // Porter/Kresge
-                        url = "https://nutrition.sa.ucsc.edu/menuSamp.asp?locationNum=25&locationName=Porter+Kresge+Dining+Hall&naFlag=";
+                        filename = "porter.html";
                         Log.d("Foods", "Porter/Kresge");
                         break;
                     case 25: // College 8/Oaks
-                        url = "https://nutrition.sa.ucsc.edu/menuSamp.asp?locationNum=30&locationName=Rachel+Carson+Oakes+Dining+Hall&naFlag=";
+                        filename = "oakes.html";
                         Log.d("Foods", "College 8/Oaks");
                         break;
                     default:
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 try {
-                    Document document = Jsoup.connect(url).get();
+                    Document document = Jsoup.parse(filename,null);
                     String category = "";
 
                     for (Element food : document.select("div.menusamprecipes,div.menusampmeals,img[src$=.gif]")) {
@@ -111,13 +111,9 @@ public class MainActivity extends AppCompatActivity {
                             category = food.text();
                         else if (food.text().equals("")) {  //finds the ingredients of the food
                             String temp = food.attr("src");
-                            tag += temp.substring(temp.indexOf('/') + 1, temp.indexOf('.')) + " ";
+                            tag += temp.substring(tag.indexOf('_')+7,tag.length()-4) + " ";
                         } else {
-                            /*if (!name.equals("")) {
-                                dba.addFood(eateryId, name, "", category, tag);
-                                Log.d("webscrape", j + ": " + tag);
-                                tag = "";
-                            }*/
+                            
                             name = food.text();
                             dba.addFood(eateryId, name, "", category, tag);
                             Log.d("webscrape", j + ": " + tag);
